@@ -33,10 +33,10 @@ public enum PlacemarkType: String, Codable, Hashable, DefaultCaseDecodable {
 extension PlacemarkType {
 	
 	/// Icons from [Icons8](https://icons8.com)
-	var iconName: String? {
+	var iconName: String {
 		switch self {
 		case .unknown:
-			return nil
+			return "icons8-map_pin"
 		case .trainingSpot, .outdoorParkourPark:
 			return "icons8-trainers"
 		case .calisthenicsPark:
@@ -65,9 +65,7 @@ extension PlacemarkType {
 	}
 	
 	/// Icons from [Icons8](https://icons8.com)
-	var glyphName: String? {
-		return iconName?.appending("_glyph")
-	}
+	var glyphName: String { iconName.appending("_glyph") }
 	
 }
 

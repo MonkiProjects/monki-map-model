@@ -13,22 +13,14 @@ extension PlacemarkType {
 	
 	/// Icons from [Icons8](https://icons8.com)
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-	public var icon: Image? {
-		if let iconName = iconName {
-			return Image(iconName, bundle: .module)
-		} else {
-			return nil
-		}
+	public var icon: Image {
+		return Image(iconName, bundle: .module)
 	}
 	
 	/// Icons from [Icons8](https://icons8.com)
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-	public var glyph: Image? {
-		if let glyphName = glyphName {
-			return Image(glyphName, bundle: .module)
-		} else {
-			return nil
-		}
+	public var glyph: Image {
+		return Image(glyphName, bundle: .module)
 	}
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
