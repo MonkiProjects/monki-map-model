@@ -10,6 +10,7 @@ import Foundation
 
 enum Strings {
 	
+	// swiftlint:disable line_length
 	/// Translation of the word `"Unknown"`.
 	///
 	/// - Parameters:
@@ -47,5 +48,6 @@ enum Strings {
 		}
 		return localizedBundle.localizedString(forKey: "Unknown", value: nil, table: nil)
 	}
+	// swiftlint:enable line_length
 	
 }

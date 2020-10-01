@@ -9,10 +9,14 @@
 import Foundation
 
 let __idRegex = "[a-z0-9]+\\+?(_[a-z0-9]+\\+?)*"
+// swiftlint:disable:previous identifier_name
+
 let __idPredicate = NSPredicate(format: "SELF MATCHES %@", __idRegex)
+// swiftlint:disable:previous identifier_name
 
 extension String {
 	
+	// swiftlint:disable line_length
 	/// `[a-z0-9]+\\+?(_[a-z0-9]+\\+?)*`
 	///
 	/// # Notes: #
@@ -20,5 +24,6 @@ extension String {
 	var isValidId: Bool {
 		return __idPredicate.evaluate(with: self)
 	}
+	// swiftlint:enable line_length
 	
 }

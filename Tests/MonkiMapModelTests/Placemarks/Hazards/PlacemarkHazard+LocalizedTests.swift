@@ -100,7 +100,12 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 	// MARK: - Invalid Domain
 	
 	func testInvalidIdThrows() {
-		let invalidIds = ["in__valid", "invalid_", "_invalid", "in-valid", "in_valid_", "in/valid", "in\\valid", "in.valid", "in|valid", "in,valid", "in++_valid", "in_valid++", "ìnvalid"]
+		let invalidIds = [
+			"in__valid", "invalid_", "_invalid", "in_valid_", "in-valid",
+			"in/valid", "in\\valid", "in.valid", "in|valid", "in,valid",
+			"in++_valid", "in_valid++",
+			"ìnvalid",
+		]
 		
 		for id in invalidIds {
 			XCTAssertThrowsError(

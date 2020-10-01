@@ -43,6 +43,7 @@ extension PlacemarkType {
 	func asPrivate(in locale: Locale) throws -> Private {
 		let hazards = Private.all(in: locale)
 		guard let hazard = hazards.first(where: { $0.id == self }) else {
+			// swiftlint:disable:next line_length
 			throw CustomError(reason: "Could not find a \(Self.self) in locale '\(locale)' with id '\(self.rawValue)'.")
 		}
 		return hazard

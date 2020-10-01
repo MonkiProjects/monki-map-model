@@ -46,7 +46,9 @@ public struct DrinkingWater: PlacemarkProtocol, Hashable, Codable {
 		satelliteImage: URL? = nil,
 		city: String? = nil,
 		country: String? = nil,
+		// swiftlint:disable:next force_try
 		type: PlacemarkType.Localized = try! PlacemarkType.defaultCase.localized(),
+		// swiftlint:disable:next force_try
 		category: PlacemarkCategory.Localized = try! PlacemarkCategory.defaultCase.localized(),
 		url: URL? = nil,
 		htmlUrl: URL? = nil,
@@ -75,7 +77,11 @@ public struct DrinkingWater: PlacemarkProtocol, Hashable, Codable {
 	// MARK: Decodable
 	
 	private enum CodingKeys: String, CodingKey {
-		case id, title, latitude, longitude, creator, createdAt, publicationStatus, images, satelliteImage, city, country, type, category, url, htmlUrl, isLiked, isFavorited
+		case id
+		case title, caption, latitude, longitude, creator, createdAt, publicationStatus
+		case images, satelliteImage, city, country
+		case type, category, features, goodForTraining, benefits, hazards
+		case url, htmlUrl, isLiked, isFavorited
 	}
 	
 }

@@ -10,7 +10,7 @@ let package = Package(
 			name: "MonkiMapModel",
 			targets: ["MonkiMapModel"]
 		),
-	], 
+	],
 	dependencies: [
 		.package(url: "https://github.com/MonkiProjects/monki-projects-model.git", .branch("master")),
 	],
