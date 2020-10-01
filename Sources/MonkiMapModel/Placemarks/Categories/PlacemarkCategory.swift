@@ -24,5 +24,23 @@ public enum PlacemarkCategory: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension PlacemarkCategory {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .spot:
+			return "icons8-place_marker"
+		case .facility:
+			return "icons8-school_building"
+		case .drinkingWater:
+			return "icons8-water"
+		}
+	}
+	
+}
+
 /// Extend for testing purposes
 extension PlacemarkCategory: CaseIterable {}

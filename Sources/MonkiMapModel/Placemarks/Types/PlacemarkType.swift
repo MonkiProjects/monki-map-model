@@ -30,5 +30,46 @@ public enum PlacemarkType: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension PlacemarkType {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .trainingSpot, .outdoorParkourPark:
+			return "icons8-trainers"
+		case .calisthenicsPark:
+			return "icons8-pullups"
+		case .descent:
+			return "icons8-height"
+		case .urbanClimbingSpot:
+			return "icons8-chalk_bag"
+		case .playground:
+			return "icons8-playground"
+		case .indoorParkourPark:
+			return "icons8-facility"
+		case .boulderingFacility:
+			return "icons8-climbing"
+		case .aomAcademy:
+			return "icons8-facility"
+		case .trickingSchool:
+			return "icons8-tricking"
+		case .trampolinePark:
+			return "icons8-trampoline_park"
+		case .gymnasticsGym:
+			return "icons8-gymnastics"
+		case .drinkingFountain:
+			return "icons8-drinking_fountain"
+		}
+	}
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var glyphName: String? {
+		return iconName?.appending("_glyph")
+	}
+	
+}
+
 /// Extend for testing purposes
 extension PlacemarkType: CaseIterable {}

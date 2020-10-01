@@ -37,5 +37,33 @@ public enum ParkourTechnique: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension ParkourTechnique {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .precisionJump:
+			return nil
+		case .kong, .doubleKong, .tripleKong:
+			return "icons8-gorilla"
+		case .catLeap:
+			return nil
+		case .catLeap180:
+			return nil
+		case .smallDrop, .mediumDrop, .highDrop:
+			return "icons8-height"
+		case .flips:
+			return "icons8-parkour"
+		case .ninjaWarrior:
+			return nil
+		case .chaseTag:
+			return nil
+		}
+	}
+	
+}
+
 /// Extend for testing purposes
 extension ParkourTechnique: CaseIterable {}

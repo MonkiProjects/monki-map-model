@@ -33,5 +33,33 @@ public enum PlacemarkHazard: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension PlacemarkHazard {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .security:
+			return "icons8-police"
+		case .securityCam:
+			return "icons8-security_cam"
+		case .slipperySurface:
+			return "icons8-slippery_floor"
+		case .highDrop:
+			return "icons8-cliff_jumping"
+		case .uneasyAccess:
+			return "icons8-uneasy_access"
+		case .lockedDoor:
+			return "icons8-locked_door"
+		case .alarm:
+			return "icons8-door_sensor"
+		case .deathDrop:
+			return "icons8-cliff_jumping"
+		}
+	}
+	
+}
+
 /// Extend for testing purposes
 extension PlacemarkHazard: CaseIterable {}

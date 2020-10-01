@@ -33,5 +33,33 @@ public enum PlacemarkBenefit: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension PlacemarkBenefit {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .drinkingFountain:
+			return "icons8-drinking_fountain"
+		case .coveredArea:
+			return "icons8-umbrella"
+		case .hooks:
+			return "icons8-climbing_anchor"
+		case .changingRoom:
+			return "icons8-change"
+		case .coaching:
+			return "icons8-coach"
+		case .wellKnown:
+			return "icons8-star"
+		case .equipmentRental:
+			return "icons8-rental"
+		case .shop:
+			return "icons8-shop"
+		}
+	}
+	
+}
+
 /// Extend for testing purposes
 extension PlacemarkBenefit: CaseIterable {}

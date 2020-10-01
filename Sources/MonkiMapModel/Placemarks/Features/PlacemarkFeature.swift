@@ -56,5 +56,67 @@ public enum PlacemarkFeature: String, Codable, Hashable, DefaultCaseDecodable {
 	
 }
 
+extension PlacemarkFeature {
+	
+	/// Icons from [Icons8](https://icons8.com)
+	var iconName: String? {
+		switch self {
+		case .unknown:
+			return nil
+		case .smallWall, .mediumWall, .bigWall:
+			return "icons8-brick_wall"
+		case .railing:
+			return nil
+		case .stairs:
+			return "icons8-staircase"
+		case .bar:
+			return "icons8-pull_up_bar"
+		case .parallelBars:
+			return nil
+		case .ladder:
+			return "icons8-ladder"
+		case .grass:
+			return "icons8-grass"
+		case .sand:
+			return "icons8-sandbox"
+		case .water:
+			return "icons8-waterfall"
+		case .tree, .treeTrunk:
+			return "icons8-oak_tree"
+		case .smallRocks, .mediumRocks, .bigRocks:
+			return "icons8-rock"
+		case .trampoline:
+			return "icons8-jump"
+		case .foamPit:
+			return nil
+		case .airbag:
+			return nil
+		case .ninjaWarriorArea, .ninjaWarriorWall:
+			return nil
+		case .chaseTagSetup:
+			return nil
+		case .oneFloor:
+			return "icons8-1"
+		case .twoFloors:
+			return "icons8-2"
+		case .threeFloors:
+			return "icons8-3"
+		case .fourFloors:
+			return "icons8-4"
+		case .fiveFloors:
+			return "icons8-5"
+		case .sixFloors:
+			return "icons8-6"
+		case .sevenFloors:
+			return "icons8-7"
+		case .moreThanSevenFloors:
+			return "icons8-8"
+		case .bench:
+			return "icons8-city_bench"
+		}
+	}
+	
+}
+
 /// Extend for testing purposes
 extension PlacemarkFeature: CaseIterable {}
