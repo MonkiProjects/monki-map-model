@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "monki-projects-model",
+        "repositoryURL": "https://github.com/MonkiProjects/monki-projects-model.git",
+        "state": {
+          "branch": "master",
+          "revision": "750b4cd1d141a655bc8bbd278efc8f40dfabb3c7",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

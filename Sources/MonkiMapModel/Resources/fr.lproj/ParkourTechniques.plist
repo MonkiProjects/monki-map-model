@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+	ParkourTechniques.plist
+	MonkiMapModel
+	
+	Created by Rémi Bardon on 05/06/2020.
+	Copyright (c) 2020 Monki Projects. All rights reserved.
+-->
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>precision_jump</string>
+		<key>title</key>
+		<string>Saut de précision</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>kong</string>
+		<key>title</key>
+		<string>Saut de chat</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>double_kong</string>
+		<key>title</key>
+		<string>Double saut de chat</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>triple_kong</string>
+		<key>title</key>
+		<string>Triple saut de chat</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>cat_leap</string>
+		<key>title</key>
+		<string>Saut de bras</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>180_cat_leap</string>
+		<key>title</key>
+		<string>Saut de bras retourné</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>small_drop</string>
+		<key>title</key>
+		<string>Petit saut de fond</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>medium_drop</string>
+		<key>title</key>
+		<string>Saut de fond moyen</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>high_drop</string>
+		<key>title</key>
+		<string>Grand saut de fond</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>flips</string>
+		<key>title</key>
+		<string>Flips</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>ninja_warrior</string>
+		<key>title</key>
+		<string>Ninja Warrior</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>chase_tag</string>
+		<key>title</key>
+		<string>Chase Tag</string>
+	</dict>
+</array>
+</plist>

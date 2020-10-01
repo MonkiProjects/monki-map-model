@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+	PlacemarkBenefits.plist
+	MonkiMapModel
+	
+	Created by Rémi Bardon on 05/06/2020.
+	Copyright (c) 2020 Monki Projects. All rights reserved.
+-->
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>drinking_fountain</string>
+		<key>title</key>
+		<string>Drinking fountain</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>covered_area</string>
+		<key>title</key>
+		<string>Covered area</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>hooks</string>
+		<key>title</key>
+		<string>Hooks</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>changing_room</string>
+		<key>title</key>
+		<string>Changing room</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>coaching</string>
+		<key>title</key>
+		<string>Coaching</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>well_known</string>
+		<key>title</key>
+		<string>Well known</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>equipment_rental</string>
+		<key>title</key>
+		<string>Equipment rental</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>shop</string>
+		<key>title</key>
+		<string>Shop</string>
+	</dict>
+</array>
+</plist>

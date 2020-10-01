@@ -1,7 +1,7 @@
 import XCTest
-
 import MonkiMapModelTests
 
 var tests = [XCTestCaseEntry]()
-tests += MonkiMapModelTests.allTests()
+tests += PlacemarkBenefitTests.allTests()
+tests += PlacemarkBenefitLocalizedTests.allTests()
 XCTMain(tests)
