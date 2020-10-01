@@ -35,6 +35,7 @@ public protocol PlacemarkProtocol: Codable {
 	var isFavorited: Bool { get }
 	
 	var isLocal: Bool { get }
+	var allImages: [URL] { get }
 	
 }
 
@@ -42,6 +43,14 @@ extension PlacemarkProtocol {
 	
 	public var isLocal: Bool {
 		[.draft, .local].contains(publicationStatus)
+	}
+	
+	public var allImages: [URL] {
+		if let satelliteImage = satelliteImage {
+			return images + [satelliteImage]
+		} else {
+			return images
+		}
 	}
 	
 }
