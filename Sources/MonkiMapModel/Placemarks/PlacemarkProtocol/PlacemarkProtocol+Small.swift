@@ -23,14 +23,4 @@ public protocol SmallPlacemarkProtocol: Codable {
 	/// Used to update data client-side
 	var updatedAt: Date { get }
 	
-	var isLocal: Bool { get }
-	
-}
-
-extension SmallPlacemarkProtocol {
-	
-	public var isLocal: Bool {
-		[.draft, .local].contains(publicationStatus)
-	}
-	
 }

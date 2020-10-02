@@ -25,11 +25,7 @@ extension PlacemarkProtocol {
 	
 	@available(iOS 13.0, *)
 	public var uiColor: UIColor {
-		if isLocal {
-			return .systemGray
-		} else {
-			return category.uiColor
-		}
+		return category.uiColor(publicationStatus: publicationStatus)
 	}
 	
 }

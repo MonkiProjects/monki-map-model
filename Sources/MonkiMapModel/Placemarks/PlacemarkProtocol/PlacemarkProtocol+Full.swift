@@ -36,16 +36,11 @@ public protocol FullPlacemarkProtocol: Codable {
 	/// Used to update data client-side
 	var updatedAt: Date { get }
 	
-	var isLocal: Bool { get }
 	var allImages: [URL] { get }
 	
 }
 
 extension FullPlacemarkProtocol {
-	
-	public var isLocal: Bool {
-		[.draft, .local].contains(publicationStatus)
-	}
 	
 	public var allImages: [URL] {
 		if let satelliteImage = satelliteImage {

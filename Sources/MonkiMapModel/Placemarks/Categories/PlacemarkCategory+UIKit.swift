@@ -24,6 +24,15 @@ extension PlacemarkCategory {
 	@available(iOS 11.0, *)
 	public var uiColor: UIColor { UIColor(named: rawValue, in: .module, compatibleWith: nil) ?? .systemRed }
 	
+	@available(iOS 11.0, *)
+	public func uiColor(publicationStatus: PlacemarkPublicationStatus) -> UIColor {
+		if publicationStatus.isLocal {
+			return .systemGray
+		} else {
+			return self.uiColor
+		}
+	}
+	
 }
 
 extension PlacemarkCategory.Localized {

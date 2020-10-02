@@ -37,11 +37,7 @@ extension PlacemarkProtocol {
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 	public var color: Color? {
-		if isLocal {
-			return .gray
-		} else {
-			return category.color
-		}
+		return category.color(publicationStatus: publicationStatus)
 	}
 	
 }

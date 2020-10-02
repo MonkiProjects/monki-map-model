@@ -15,6 +15,10 @@ public enum PlacemarkPublicationStatus: String, Hashable, Codable, DefaultCaseDe
 	
 	case unknown, draft, local, submitted, published, rejected
 	
+	public var isLocal: Bool {
+		return [.draft, .local].contains(self)
+	}
+	
 }
 
 /// Extend for testing purposes
