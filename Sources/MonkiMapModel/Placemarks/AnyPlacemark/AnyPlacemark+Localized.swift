@@ -10,9 +10,9 @@ import Foundation
 
 extension AnyPlacemark {
 	
-	enum Localized {
+	public enum Localized {
 		
-		enum Small: Hashable {
+		public enum Small: Hashable {
 			
 			case spot(Spot.Localized.Small)
 			case facility(Facility.Localized.Small)
@@ -31,7 +31,7 @@ extension AnyPlacemark {
 			
 		}
 		
-		enum Full: Hashable {
+		public enum Full: Hashable {
 			
 			case spot(Spot.Localized.Full)
 			case facility(Facility.Localized.Full)
