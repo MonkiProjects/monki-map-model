@@ -36,7 +36,7 @@ public struct Spot: PlacemarkProtocol, Codable, Hashable, Identifiable {
 	public let updatedAt: Date
 	
 	public init(
-		id: UUID,
+		id: UUID = UUID(),
 		title: String,
 		caption: String? = nil,
 		latitude: Double,

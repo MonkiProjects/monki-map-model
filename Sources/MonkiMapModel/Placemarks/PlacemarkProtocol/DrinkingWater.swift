@@ -36,7 +36,7 @@ public struct DrinkingWater: PlacemarkProtocol, Hashable, Codable {
 	public let updatedAt: Date
 	
 	public init(
-		id: UUID,
+		id: UUID = UUID(),
 		title: String,
 		latitude: Double,
 		longitude: Double,

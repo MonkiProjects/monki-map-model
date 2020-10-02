@@ -27,7 +27,7 @@ extension Spot {
 			public let updatedAt: Date
 			
 			public init(
-				id: UUID,
+				id: UUID = UUID(),
 				title: String,
 				latitude: Double,
 				longitude: Double,
@@ -96,7 +96,7 @@ extension Spot {
 			public let updatedAt: Date
 			
 			public init(
-				id: UUID,
+				id: UUID = UUID(),
 				title: String,
 				caption: String? = nil,
 				latitude: Double,
