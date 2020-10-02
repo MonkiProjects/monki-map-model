@@ -23,16 +23,17 @@ public struct Facility: PlacemarkProtocol, Hashable, Codable {
 	public let satelliteImage: URL?
 	public let city: String?
 	public let country: String?
-	public let type: PlacemarkType.Localized
-	public let category: PlacemarkCategory.Localized
-	public let features: [PlacemarkFeature.Localized]
-	public let goodForTraining: [ParkourTechnique.Localized]
-	public let benefits: [PlacemarkBenefit.Localized]
-	public let hazards: [PlacemarkHazard.Localized]
+	public let type: PlacemarkType
+	public let category: PlacemarkCategory
+	public let features: [PlacemarkFeature]
+	public let goodForTraining: [ParkourTechnique]
+	public let benefits: [PlacemarkBenefit]
+	public let hazards: [PlacemarkHazard]
 	public let url: URL?
 	public let htmlUrl: URL?
 	public let isLiked: Bool
 	public let isFavorited: Bool
+	public let updatedAt: Date
 	
 	public init(
 		id: UUID,
@@ -47,18 +48,17 @@ public struct Facility: PlacemarkProtocol, Hashable, Codable {
 		satelliteImage: URL? = nil,
 		city: String? = nil,
 		country: String? = nil,
-		// swiftlint:disable:next force_try
-		type: PlacemarkType.Localized = try! PlacemarkType.defaultCase.localized(),
-		// swiftlint:disable:next force_try
-		category: PlacemarkCategory.Localized = try! PlacemarkCategory.defaultCase.localized(),
-		features: [PlacemarkFeature.Localized] = [],
-		goodForTraining: [ParkourTechnique.Localized] = [],
-		benefits: [PlacemarkBenefit.Localized] = [],
-		hazards: [PlacemarkHazard.Localized] = [],
+		type: PlacemarkType = .defaultCase,
+		category: PlacemarkCategory = .defaultCase,
+		features: [PlacemarkFeature] = [],
+		goodForTraining: [ParkourTechnique] = [],
+		benefits: [PlacemarkBenefit] = [],
+		hazards: [PlacemarkHazard] = [],
 		url: URL? = nil,
 		htmlUrl: URL? = nil,
 		isLiked: Bool = false,
-		isFavorited: Bool = false
+		isFavorited: Bool = false,
+		updatedAt: Date = Date()
 	) {
 		self.id = id
 		self.title = title
@@ -82,6 +82,7 @@ public struct Facility: PlacemarkProtocol, Hashable, Codable {
 		self.htmlUrl = htmlUrl
 		self.isLiked = isLiked
 		self.isFavorited = isFavorited
+		self.updatedAt = updatedAt
 	}
 	
 	// MARK: Decodable
@@ -91,7 +92,7 @@ public struct Facility: PlacemarkProtocol, Hashable, Codable {
 		case title, caption, latitude, longitude, creator, createdAt, publicationStatus
 		case images, satelliteImage, city, country
 		case type, category, features, goodForTraining, benefits, hazards
-		case url, htmlUrl, isLiked, isFavorited
+		case url, htmlUrl, isLiked, isFavorited, updatedAt
 	}
 	
 }

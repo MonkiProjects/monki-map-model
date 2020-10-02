@@ -1,5 +1,5 @@
 //
-//  PlacemarkProtocol.swift
+//  PlacemarkProtocol+Full.swift
 //  MonkiMapModel
 //
 //  Created by Rémi Bardon on 16/08/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import MonkiProjectsModel
 
-public protocol PlacemarkProtocol: Codable {
+public protocol FullPlacemarkProtocol: Codable {
 	
 	var id: UUID { get }
 	var title: String { get }
@@ -23,12 +23,12 @@ public protocol PlacemarkProtocol: Codable {
 	var country: String? { get }
 	var images: [URL] { get }
 	var satelliteImage: URL? { get }
-	var type: PlacemarkType { get }
-	var category: PlacemarkCategory { get }
-	var features: [PlacemarkFeature] { get }
-	var goodForTraining: [ParkourTechnique] { get }
-	var benefits: [PlacemarkBenefit] { get }
-	var hazards: [PlacemarkHazard] { get }
+	var type: PlacemarkType.Localized { get }
+	var category: PlacemarkCategory.Localized { get }
+	var features: [PlacemarkFeature.Localized] { get }
+	var goodForTraining: [ParkourTechnique.Localized] { get }
+	var benefits: [PlacemarkBenefit.Localized] { get }
+	var hazards: [PlacemarkHazard.Localized] { get }
 	var url: URL? { get }
 	var htmlUrl: URL? { get }
 	var isLiked: Bool { get }
@@ -41,7 +41,7 @@ public protocol PlacemarkProtocol: Codable {
 	
 }
 
-extension PlacemarkProtocol {
+extension FullPlacemarkProtocol {
 	
 	public var isLocal: Bool {
 		[.draft, .local].contains(publicationStatus)

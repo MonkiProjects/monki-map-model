@@ -20,11 +20,7 @@ extension PlacemarkProtocol {
 		}
 		#endif
 		
-		if let icon = type.icon {
-			return icon
-		} else {
-			return nil
-		}
+		return type.icon
 	}
 	
 	/// Icons from [Icons8](https://icons8.com)
@@ -36,11 +32,7 @@ extension PlacemarkProtocol {
 		}
 		#endif
 		
-		if let glyph = type.glyph {
-			return glyph
-		} else {
-			return nil
-		}
+		return type.glyph
 	}
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
