@@ -52,6 +52,28 @@ extension AnyPlacemark {
 		
 	}
 	
+	public func localizedSmall(in locale: Locale = Locale.current) throws -> Localized.Small {
+		switch self {
+		case .spot(let spot):
+			return .spot(try spot.localizedSmall(in: locale))
+		case .facility(let facility):
+			return .facility(try facility.localizedSmall(in: locale))
+		case .drinkingWater(let drinkingWater):
+			return .drinkingWater(try drinkingWater.localizedSmall(in: locale))
+		}
+	}
+	
+	public func localizedFull(in locale: Locale = Locale.current) throws -> Localized.Full {
+		switch self {
+		case .spot(let spot):
+			return .spot(try spot.localizedFull(in: locale))
+		case .facility(let facility):
+			return .facility(try facility.localizedFull(in: locale))
+		case .drinkingWater(let drinkingWater):
+			return .drinkingWater(try drinkingWater.localizedFull(in: locale))
+		}
+	}
+	
 }
 
 extension AnyPlacemark.Localized.Small: Codable {

@@ -182,7 +182,7 @@ extension Spot {
 		)
 	}
 	
-	public func localizedSmall(in locale: Locale = Locale.current) throws -> Localized.Full {
+	public func localizedFull(in locale: Locale = Locale.current) throws -> Localized.Full {
 		return .init(
 			id: id,
 			title: title,

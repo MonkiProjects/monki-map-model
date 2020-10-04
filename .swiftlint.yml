@@ -27,7 +27,6 @@ identifier_name:
     - rhs
     - en
     - fr
-    - "__[a-zA-Z]+"
 trailing_whitespace:
   ignores_empty_lines: true
 trailing_comma:
