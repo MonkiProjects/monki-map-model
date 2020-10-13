@@ -16,7 +16,7 @@ extension PlacemarkProtocol {
 	public var uiIcon: UIImage? {
 		if publicationStatus == .draft {
 			return UIImage(systemName: "doc.text")!
-		} else if let uiIcon = type.uiIcon {
+		} else if let uiIcon = _type.uiIcon {
 			return uiIcon
 		} else {
 			return nil
@@ -25,7 +25,7 @@ extension PlacemarkProtocol {
 	
 	@available(iOS 13.0, *)
 	public var uiColor: UIColor {
-		return category.uiColor(publicationStatus: publicationStatus)
+		return _category.uiColor(publicationStatus: publicationStatus)
 	}
 	
 }

@@ -20,7 +20,7 @@ extension PlacemarkProtocol {
 		}
 		#endif
 		
-		return type.icon
+		return _type.icon
 	}
 	
 	/// Icons from [Icons8](https://icons8.com)
@@ -32,12 +32,12 @@ extension PlacemarkProtocol {
 		}
 		#endif
 		
-		return type.glyph
+		return _type.glyph
 	}
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 	public var color: Color? {
-		return category.color(publicationStatus: publicationStatus)
+		return _category.color(publicationStatus: publicationStatus)
 	}
 	
 }

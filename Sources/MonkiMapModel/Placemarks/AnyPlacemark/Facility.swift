@@ -1,15 +1,15 @@
 //
-//  Spot.swift
+//  Facility.swift
 //  MonkiMapModel
 //
-//  Created by Rémi Bardon on 13/05/2020.
+//  Created by Rémi Bardon on 14/05/2020.
 //  Copyright © 2020 Monki Projects. All rights reserved.
 //
 
 import Foundation
 import MonkiProjectsModel
 
-public struct Spot: PlacemarkProtocol, Codable, Hashable, Identifiable {
+public struct Facility: LocalizedPlacemarkProtocol, Hashable, Codable {
 	
 	public let id: UUID
 	public let title: String
@@ -23,16 +23,17 @@ public struct Spot: PlacemarkProtocol, Codable, Hashable, Identifiable {
 	public let satelliteImage: URL?
 	public let city: String?
 	public let country: String?
-	public let type: PlacemarkType
-	public let category: PlacemarkCategory
-	public let features: [PlacemarkFeature]
-	public let goodForTraining: [ParkourTechnique]
-	public let benefits: [PlacemarkBenefit]
-	public let hazards: [PlacemarkHazard]
+	public let type: PlacemarkType.Localized
+	public let category: PlacemarkCategory.Localized
+	public let features: [PlacemarkFeature.Localized]
+	public let goodForTraining: [ParkourTechnique.Localized]
+	public let benefits: [PlacemarkBenefit.Localized]
+	public let hazards: [PlacemarkHazard.Localized]
 	public let url: URL?
 	public let htmlUrl: URL?
 	public let isLiked: Bool
 	public let isFavorited: Bool
+	/// Used to update data client-side
 	public let updatedAt: Date
 	
 	public init(
@@ -48,12 +49,14 @@ public struct Spot: PlacemarkProtocol, Codable, Hashable, Identifiable {
 		satelliteImage: URL? = nil,
 		city: String? = nil,
 		country: String? = nil,
-		type: PlacemarkType = .defaultCase,
-		category: PlacemarkCategory = .defaultCase,
-		features: [PlacemarkFeature] = [],
-		goodForTraining: [ParkourTechnique] = [],
-		benefits: [PlacemarkBenefit] = [],
-		hazards: [PlacemarkHazard] = [],
+		// swiftlint:disable:next force_try
+		type: PlacemarkType.Localized = try! PlacemarkType.defaultCase.localized(),
+		// swiftlint:disable:next force_try
+		category: PlacemarkCategory.Localized = try! PlacemarkCategory.defaultCase.localized(),
+		features: [PlacemarkFeature.Localized] = [],
+		goodForTraining: [ParkourTechnique.Localized] = [],
+		benefits: [PlacemarkBenefit.Localized] = [],
+		hazards: [PlacemarkHazard.Localized] = [],
 		url: URL? = nil,
 		htmlUrl: URL? = nil,
 		isLiked: Bool = false,
@@ -83,16 +86,6 @@ public struct Spot: PlacemarkProtocol, Codable, Hashable, Identifiable {
 		self.isLiked = isLiked
 		self.isFavorited = isFavorited
 		self.updatedAt = updatedAt
-	}
-	
-	// MARK: Decodable
-	
-	private enum CodingKeys: String, CodingKey {
-		case id
-		case title, caption, latitude, longitude, creator, createdAt, publicationStatus
-		case images, satelliteImage, city, country
-		case type, category, features, goodForTraining, benefits, hazards
-		case url, htmlUrl, isLiked, isFavorited, updatedAt
 	}
 	
 }

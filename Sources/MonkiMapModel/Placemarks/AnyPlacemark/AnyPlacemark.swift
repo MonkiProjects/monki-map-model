@@ -12,7 +12,7 @@ public enum AnyPlacemark: Hashable {
 	
 	case spot(Spot), facility(Facility), drinkingWater(DrinkingWater)
 	
-	public var wrappedValue: PlacemarkProtocol {
+	public var wrappedValue: LocalizedPlacemarkProtocol {
 		switch self {
 		case .spot(let spot):
 			return spot
@@ -25,33 +25,42 @@ public enum AnyPlacemark: Hashable {
 	
 }
 
-/// Allows placemark categories to be used as coding keys to decode `AnyPlacemark`s.
-extension PlacemarkCategory: CodingKey {}
-
 extension AnyPlacemark: Codable {
 	
+	private enum CodingKeys: String, CodingKey {
+		case category
+	}
+	
 	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: PlacemarkCategory.self)
+		let categoryContainer = try decoder.container(keyedBy: CodingKeys.self)
+		let valueContainer = { try decoder.singleValueContainer() }
 		
-		if let spot = try container.decodeIfPresent(Spot.self, forKey: .spot) {
-			self = .spot(spot)
-		} else if let facility = try container.decodeIfPresent(Facility.self, forKey: .facility) {
-			self = .facility(facility)
-		} else {
-			self = .drinkingWater(try container.decode(DrinkingWater.self, forKey: .drinkingWater))
+		switch try categoryContainer.decode(PlacemarkCategory.self, forKey: .category) {
+		case .spot:
+			self = .spot(try valueContainer().decode(Spot.self))
+		case .facility:
+			self = .facility(try valueContainer().decode(Facility.self))
+		case .drinkingWater:
+			self = .drinkingWater(try valueContainer().decode(DrinkingWater.self))
+		case .unknown:
+			throw DecodingError.dataCorruptedError(
+				forKey: CodingKeys.category,
+				in: categoryContainer,
+				debugDescription: "Unknown category"
+			)
 		}
 	}
 	
 	public func encode(to encoder: Encoder) throws {
-		var container = encoder.container(keyedBy: PlacemarkCategory.self)
+		var container = encoder.singleValueContainer()
 		
 		switch self {
 		case .spot(let spot):
-			try container.encode(spot, forKey: .spot)
+			try container.encode(spot)
 		case .facility(let facility):
-			try container.encode(facility, forKey: .facility)
+			try container.encode(facility)
 		case .drinkingWater(let drinkingWater):
-			try container.encode(drinkingWater, forKey: .drinkingWater)
+			try container.encode(drinkingWater)
 		}
 	}
 	
