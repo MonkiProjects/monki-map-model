@@ -67,7 +67,7 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkHazard.Localized(id: id, title: "Security")
 			let result = try PlacemarkHazard.security.localized(in: Locale.en)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .security)
 			XCTAssertEqual(result.title, expected.title)
 		}
 		
@@ -75,7 +75,7 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkHazard.Localized(id: id, title: "Sécurité")
 			let result = try PlacemarkHazard.security.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .security)
 			XCTAssertEqual(result.title, expected.title)
 		}
 	}
@@ -116,8 +116,8 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 	}
 	
 	func testLocalizedHazardsAreDifferentIfIdsDiffer() throws {
-		let hazard1 = try PlacemarkHazard.Localized(id: "id_1", title: "Shared name")
-		let hazard2 = try PlacemarkHazard.Localized(id: "id_2", title: "Shared name")
+		let hazard1 = try PlacemarkHazard.Localized(id: "security", title: "Shared name")
+		let hazard2 = try PlacemarkHazard.Localized(id: "security_cam", title: "Shared name")
 		XCTAssertNotEqual(hazard1, hazard2)
 	}
 	

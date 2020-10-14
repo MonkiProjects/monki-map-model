@@ -12,13 +12,13 @@ extension PlacemarkFeature {
 	
 	public struct Localized: Codable, Hashable, Identifiable {
 		
-		public let id: String
+		public let id: PlacemarkFeature
 		public let title: String
 		
 		public init(id: String, title: String) throws {
 			try id.validate(with: __idPredicate)
 			
-			self.id = id
+			self.id = PlacemarkFeature(rawValue: id)
 			self.title = title
 		}
 		

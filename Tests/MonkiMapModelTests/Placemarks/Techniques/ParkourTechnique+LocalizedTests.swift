@@ -75,7 +75,7 @@ final class ParkourTechniqueLocalizedTests: XCTestCase {
 		do {
 			let expected = try ParkourTechnique.Localized(id: id, title: "Precision jump")
 			let result = try ParkourTechnique.precisionJump.localized(in: Locale.en)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .precisionJump)
 			XCTAssertEqual(result.title, expected.title)
 		}
 		
@@ -83,7 +83,7 @@ final class ParkourTechniqueLocalizedTests: XCTestCase {
 		do {
 			let expected = try ParkourTechnique.Localized(id: id, title: "Saut de précision")
 			let result = try ParkourTechnique.precisionJump.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .precisionJump)
 			XCTAssertEqual(result.title, expected.title)
 		}
 	}
@@ -124,8 +124,8 @@ final class ParkourTechniqueLocalizedTests: XCTestCase {
 	}
 	
 	func testLocalizedTechniquesAreDifferentIfIdsDiffer() throws {
-		let technique1 = try ParkourTechnique.Localized(id: "id_1", title: "Shared name")
-		let technique2 = try ParkourTechnique.Localized(id: "id_2", title: "Shared name")
+		let technique1 = try ParkourTechnique.Localized(id: "precision_jump", title: "Shared name")
+		let technique2 = try ParkourTechnique.Localized(id: "kong", title: "Shared name")
 		XCTAssertNotEqual(technique1, technique2)
 	}
 	

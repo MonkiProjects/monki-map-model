@@ -12,13 +12,13 @@ extension ParkourTechnique {
 	
 	public struct Localized: Codable, Hashable, Identifiable {
 		
-		public let id: String
+		public let id: ParkourTechnique
 		public let title: String
 		
 		public init(id: String, title: String) throws {
 			try id.validate(with: __idPredicate)
 			
-			self.id = id
+			self.id = ParkourTechnique(rawValue: id)
 			self.title = title
 		}
 		

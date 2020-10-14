@@ -67,7 +67,7 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkBenefit.Localized(id: id, title: "Well known")
 			let result = try PlacemarkBenefit.wellKnown.localized(in: Locale.en)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .wellKnown)
 			XCTAssertEqual(result.title, expected.title)
 		}
 		
@@ -75,7 +75,7 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkBenefit.Localized(id: id, title: "Très connu")
 			let result = try PlacemarkBenefit.wellKnown.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .wellKnown)
 			XCTAssertEqual(result.title, expected.title)
 		}
 	}
@@ -116,8 +116,8 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 	}
 	
 	func testLocalizedBenefitsAreDifferentIfIdsDiffer() throws {
-		let benefit1 = try PlacemarkBenefit.Localized(id: "id_1", title: "Shared name")
-		let benefit2 = try PlacemarkBenefit.Localized(id: "id_2", title: "Shared name")
+		let benefit1 = try PlacemarkBenefit.Localized(id: "drinking_fountain", title: "Shared name")
+		let benefit2 = try PlacemarkBenefit.Localized(id: "covered_area", title: "Shared name")
 		XCTAssertNotEqual(benefit1, benefit2)
 	}
 	

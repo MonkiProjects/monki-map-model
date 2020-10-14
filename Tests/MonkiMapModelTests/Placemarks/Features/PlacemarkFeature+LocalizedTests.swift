@@ -113,7 +113,7 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkFeature.Localized(id: id, title: "Small Wall")
 			let result = try PlacemarkFeature.smallWall.localized(in: Locale.en)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .smallWall)
 			XCTAssertEqual(result.title, expected.title)
 		}
 		
@@ -121,7 +121,7 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 		do {
 			let expected = try PlacemarkFeature.Localized(id: id, title: "Petit mur")
 			let result = try PlacemarkFeature.smallWall.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.id, .smallWall)
 			XCTAssertEqual(result.title, expected.title)
 		}
 	}
@@ -162,8 +162,8 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 	}
 	
 	func testLocalizedFeaturesAreDifferentIfIdsDiffer() throws {
-		let feature1 = try PlacemarkFeature.Localized(id: "id_1", title: "Shared name")
-		let feature2 = try PlacemarkFeature.Localized(id: "id_2", title: "Shared name")
+		let feature1 = try PlacemarkFeature.Localized(id: "small_wall", title: "Shared name")
+		let feature2 = try PlacemarkFeature.Localized(id: "medium_wall", title: "Shared name")
 		XCTAssertNotEqual(feature1, feature2)
 	}
 	
