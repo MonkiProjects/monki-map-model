@@ -19,6 +19,7 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 	public let category: PlacemarkCategory
 	public let isLiked: Bool
 	public let isFavorited: Bool
+	public let userCount: Int
 	/// Used to update data client-side
 	public let updatedAt: Date
 	
@@ -32,6 +33,7 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 		category: PlacemarkCategory = .defaultCase,
 		isLiked: Bool = false,
 		isFavorited: Bool = false,
+		userCount: Int = 0,
 		updatedAt: Date = Date()
 	) {
 		self.id = id
@@ -43,6 +45,7 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 		self.category = category
 		self.isLiked = isLiked
 		self.isFavorited = isFavorited
+		self.userCount = userCount
 		self.updatedAt = updatedAt
 	}
 	
