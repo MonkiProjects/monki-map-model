@@ -15,11 +15,15 @@ public class PlacemarkMapAnnotation: MKPointAnnotation {
 	
 	public init(model: PlacemarkAnnotationModel) {
 		self.model = model
+		
 		super.init()
+		
 		self.coordinate = CLLocationCoordinate2D(
 			latitude: model.latitude,
 			longitude: model.longitude
 		)
+		self.title = model.title
+		self.subtitle = try? model.type.title(in: Locale.current)
 	}
 	
 }
