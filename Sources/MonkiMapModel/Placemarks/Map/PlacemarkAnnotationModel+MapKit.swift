@@ -12,12 +12,7 @@ import MapKit
 public extension PlacemarkAnnotationModel {
 	
 	var mkAnnotation: MKAnnotation {
-		let annotation = MKPointAnnotation()
-		annotation.coordinate = CLLocationCoordinate2D(
-			latitude: latitude,
-			longitude: longitude
-		)
-		return annotation
+		return PlacemarkMapAnnotation(model: self)
 	}
 	
 }
