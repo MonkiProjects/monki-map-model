@@ -9,11 +9,11 @@
 #if canImport(MapKit)
 import MapKit
 
-class PlacemarkMapAnnotation: MKPointAnnotation {
+public class PlacemarkMapAnnotation: MKPointAnnotation {
 	
-	let model: PlacemarkAnnotationModel
+	public let model: PlacemarkAnnotationModel
 	
-	init(model: PlacemarkAnnotationModel) {
+	public init(model: PlacemarkAnnotationModel) {
 		self.model = model
 		super.init()
 		self.coordinate = CLLocationCoordinate2D(
