@@ -23,6 +23,16 @@ extension PlacemarkProtocol {
 		}
 	}
 	
+	/// Icons from [Icons8](https://icons8.com)
+	@available(iOS 13.0, *)
+	public var uiGlyph: UIImage? {
+		if publicationStatus == .draft {
+			return UIImage(systemName: "doc.text")
+		}
+		
+		return _type.uiGlyph
+	}
+	
 	@available(iOS 13.0, *)
 	public var uiColor: UIColor {
 		return _category.uiColor(publicationStatus: publicationStatus)
