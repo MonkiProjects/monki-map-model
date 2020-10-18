@@ -34,11 +34,15 @@ extension PlacemarkType {
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 	public func uiColor(publicationStatus: PlacemarkPublicationStatus) -> UIColor {
-		do {
-			return try self.asPrivate(in: Locale.en)
-				.category.uiColor(publicationStatus: publicationStatus)
-		} catch {
-			return .systemRed
+		if publicationStatus.isLocal {
+			return .systemGray
+		} else {
+			do {
+				return try self.asPrivate(in: Locale.en)
+					.category.uiColor(publicationStatus: publicationStatus)
+			} catch {
+				return .systemRed
+			}
 		}
 	}
 	
