@@ -11,17 +11,17 @@ import Foundation
 public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 	
 	public let id: UUID
-	public let title: String
-	public let latitude: Double
-	public let longitude: Double
-	public let publicationStatus: PlacemarkPublicationStatus
-	public let type: PlacemarkType
-	public let category: PlacemarkCategory
-	public let isLiked: Bool
-	public let isFavorited: Bool
-	public let userCount: Int
+	public var title: String
+	public var latitude: Double
+	public var longitude: Double
+	public var publicationStatus: PlacemarkPublicationStatus
+	public var type: PlacemarkType
+	public var category: PlacemarkCategory
+	public var isLiked: Bool
+	public var isFavorited: Bool
+	public var userCount: Int
 	/// Used to update data client-side
-	public let updatedAt: Date
+	public var updatedAt: Date
 	
 	public init(
 		id: UUID = UUID(),
