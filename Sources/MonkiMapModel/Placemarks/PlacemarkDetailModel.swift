@@ -96,12 +96,6 @@ public struct PlacemarkDetailModel: Codable, Hashable, Identifiable {
 		self.updatedAt = updatedAt
 	}
 	
-	// MARK: Equatable
-	
-	public static func == (lhs: Self, rhs: Self) -> Bool {
-		return lhs.id == rhs.id
-	}
-	
 }
 
 extension PlacemarkDetailModel: PlacemarkProtocol {
