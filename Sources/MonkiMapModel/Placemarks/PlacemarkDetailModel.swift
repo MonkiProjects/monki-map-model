@@ -12,29 +12,29 @@ import MonkiProjectsModel
 public struct PlacemarkDetailModel: Codable, Hashable, Identifiable {
 	
 	public let id: UUID
-	public let title: String
-	public let caption: String?
-	public let latitude: Double
-	public let longitude: Double
-	public let creator: MPUser.Public.Small?
+	public var title: String
+	public var caption: String?
+	public var latitude: Double
+	public var longitude: Double
+	public var creator: MPUser.Public.Small?
 	public let createdAt: Date
-	public let publicationStatus: PlacemarkPublicationStatus
-	public let images: [URL]
-	public let satelliteImage: URL?
-	public let city: String?
-	public let country: String?
-	public let type: PlacemarkType.Localized
-	public let category: PlacemarkCategory.Localized
-	public let features: [PlacemarkFeature.Localized]
-	public let goodForTraining: [ParkourTechnique.Localized]
-	public let benefits: [PlacemarkBenefit.Localized]
-	public let hazards: [PlacemarkHazard.Localized]
+	public var publicationStatus: PlacemarkPublicationStatus
+	public var images: [URL]
+	public var satelliteImage: URL?
+	public var city: String?
+	public var country: String?
+	public var type: PlacemarkType.Localized
+	public var category: PlacemarkCategory.Localized
+	public var features: [PlacemarkFeature.Localized]
+	public var goodForTraining: [ParkourTechnique.Localized]
+	public var benefits: [PlacemarkBenefit.Localized]
+	public var hazards: [PlacemarkHazard.Localized]
 	public let url: URL?
 	public let htmlUrl: URL?
-	public let isLiked: Bool
-	public let isFavorited: Bool
+	public var isLiked: Bool
+	public var isFavorited: Bool
 	/// Used to update data client-side
-	public let updatedAt: Date
+	public var updatedAt: Date
 	
 	public var allImages: [URL] {
 		if let satelliteImage = satelliteImage {
