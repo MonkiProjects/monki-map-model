@@ -12,20 +12,24 @@ import MapKit
 public class PlacemarkMapAnnotation: MKPointAnnotation {
 	
 	public var model: PlacemarkAnnotationModel {
-		didSet {
-			coordinate = CLLocationCoordinate2D(
-				latitude: model.latitude,
-				longitude: model.longitude
-			)
-			title = model.title
-			subtitle = try? model.type.title(in: Locale.current)
-		}
+		didSet { update() }
 	}
 	
 	public init(model: PlacemarkAnnotationModel) {
 		self.model = model
 		
 		super.init()
+		
+		update()
+	}
+	
+	private func update() {
+		coordinate = CLLocationCoordinate2D(
+			latitude: model.latitude,
+			longitude: model.longitude
+		)
+		title = model.title
+		subtitle = try? model.type.title(in: Locale.current)
 	}
 	
 }
