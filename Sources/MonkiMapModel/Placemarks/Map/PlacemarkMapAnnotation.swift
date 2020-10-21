@@ -11,19 +11,21 @@ import MapKit
 
 public class PlacemarkMapAnnotation: MKPointAnnotation {
 	
-	public let model: PlacemarkAnnotationModel
+	public var model: PlacemarkAnnotationModel {
+		didSet {
+			coordinate = CLLocationCoordinate2D(
+				latitude: model.latitude,
+				longitude: model.longitude
+			)
+			title = model.title
+			subtitle = try? model.type.title(in: Locale.current)
+		}
+	}
 	
 	public init(model: PlacemarkAnnotationModel) {
 		self.model = model
 		
 		super.init()
-		
-		self.coordinate = CLLocationCoordinate2D(
-			latitude: model.latitude,
-			longitude: model.longitude
-		)
-		self.title = model.title
-		self.subtitle = try? model.type.title(in: Locale.current)
 	}
 	
 }
