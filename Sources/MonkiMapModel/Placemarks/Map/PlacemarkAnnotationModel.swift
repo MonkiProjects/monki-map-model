@@ -51,9 +51,11 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 	
 }
 
+// swiftlint:disable identifier_name
 extension PlacemarkAnnotationModel: PlacemarkProtocol {
 	
 	public var _type: PlacemarkType { type }
 	public var _category: PlacemarkCategory { category }
 	
 }
+// swiftlint:enable identifier_name
