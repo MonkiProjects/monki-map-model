@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension PlacemarkBenefit {
+extension PlacemarkBenefit: MultiLocaleLocalizable {
 	
 	public struct Localized: Codable, Hashable, Identifiable {
 		
@@ -33,7 +33,7 @@ extension PlacemarkBenefit {
 	}
 	
 	public func localized(in locale: Locale = Locale.current) throws -> Localized {
-		return try .init(id: rawValue, title: title(in: locale))
+		return try locale.firstMatch(in: { try Localized(id: rawValue, title: title(in: $0)) })
 	}
 	
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ParkourTechnique {
+extension ParkourTechnique: MultiLocaleLocalizable {
 	
 	public struct Localized: Codable, Hashable, Identifiable {
 		
@@ -32,8 +32,8 @@ extension ParkourTechnique {
 		return try self == .unknown ? Strings.unknown(in: locale) : self.asPrivate(in: locale).title
 	}
 	
-	public func localized(in locale: Locale) throws -> Localized {
-		return try .init(id: rawValue, title: title(in: locale))
+	public func localized(in locale: Locale = Locale.current) throws -> Localized {
+		return try locale.firstMatch(in: { try Localized(id: rawValue, title: title(in: $0)) })
 	}
 	
 }
