@@ -13,7 +13,7 @@ public struct PlacemarkDetailModel: Codable, Hashable, Identifiable {
 	
 	public let id: UUID
 	public var title: String
-	public var caption: String?
+	public var caption: String
 	public var latitude: Double
 	public var longitude: Double
 	public var creator: MPUser.Public.Small?
@@ -47,7 +47,7 @@ public struct PlacemarkDetailModel: Codable, Hashable, Identifiable {
 	public init(
 		id: UUID = UUID(),
 		title: String,
-		caption: String? = nil,
+		caption: String = "",
 		latitude: Double,
 		longitude: Double,
 		creator: MPUser.Public.Small? = nil,
