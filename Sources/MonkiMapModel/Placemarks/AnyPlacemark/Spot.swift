@@ -13,7 +13,7 @@ public struct Spot: LocalizedPlacemarkProtocol, Codable, Hashable, Identifiable 
 	
 	public let id: UUID
 	public let title: String
-	public let caption: String?
+	public let caption: String
 	public let latitude: Double
 	public let longitude: Double
 	public let creator: MPUser.Public.Small?
@@ -39,7 +39,7 @@ public struct Spot: LocalizedPlacemarkProtocol, Codable, Hashable, Identifiable 
 	public init(
 		id: UUID = UUID(),
 		title: String,
-		caption: String? = nil,
+		caption: String,
 		latitude: Double,
 		longitude: Double,
 		creator: MPUser.Public.Small? = nil,
