@@ -39,7 +39,7 @@ public struct Spot: LocalizedPlacemarkProtocol, Codable, Hashable, Identifiable 
 	public init(
 		id: UUID = UUID(),
 		title: String,
-		caption: String,
+		caption: String = "",
 		latitude: Double,
 		longitude: Double,
 		creator: MPUser.Public.Small? = nil,
