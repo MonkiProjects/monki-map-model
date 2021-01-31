@@ -24,7 +24,7 @@ let package = Package(
 		.target(
 			name: "MonkiMapModel",
 			dependencies: [
-				.product(name: "MonkiProjectsModel", package: "monki-projects-model"),
+				.product(name: "Model", package: "monki-projects-model"),
 			],
 			resources: [
 				.process("Resources/Strings"),
