@@ -15,14 +15,14 @@ extension PlacemarkCategory {
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 	public var icon: Image? {
 		if let iconName = iconName {
-			return Image(iconName, bundle: .module)
+			return Image(iconName, bundle: .fixedModule)
 		} else {
 			return nil
 		}
 	}
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-	public var color: Color { Color(rawValue, bundle: .module) }
+	public var color: Color { Color(rawValue, bundle: .fixedModule) }
 	
 	@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 	public func color(publicationStatus: PlacemarkPublicationStatus) -> Color {

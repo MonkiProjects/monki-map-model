@@ -15,14 +15,14 @@ extension PlacemarkCategory {
 	@available(iOS 13.0, *)
 	public var uiIcon: UIImage? {
 		if let iconName = self.iconName {
-			return UIImage(named: iconName, in: .module, compatibleWith: nil)
+			return UIImage(named: iconName, in: .fixedModule, compatibleWith: nil)
 		} else {
 			return nil
 		}
 	}
 	
 	@available(iOS 11.0, *)
-	public var uiColor: UIColor { UIColor(named: rawValue, in: .module, compatibleWith: nil) ?? .systemRed }
+	public var uiColor: UIColor { UIColor(named: rawValue, in: .fixedModule, compatibleWith: nil) ?? .systemRed }
 	
 	@available(iOS 11.0, *)
 	public func uiColor(publicationStatus: PlacemarkPublicationStatus) -> UIColor {

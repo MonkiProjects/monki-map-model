@@ -15,7 +15,7 @@ extension PlacemarkFeature {
 	@available(iOS 13.0, *)
 	public var uiIcon: UIImage? {
 		if let iconName = self.iconName {
-			return UIImage(named: iconName, in: .module, compatibleWith: nil)
+			return UIImage(named: iconName, in: .fixedModule, compatibleWith: nil)
 		} else {
 			return nil
 		}

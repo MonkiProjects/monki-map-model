@@ -14,13 +14,13 @@ extension PlacemarkType {
 	/// Icons from [Icons8](https://icons8.com)
 	@available(iOS 13.0, *)
 	public var uiIcon: UIImage? {
-		return UIImage(named: iconName, in: .module, compatibleWith: nil)
+		return UIImage(named: iconName, in: .fixedModule, compatibleWith: nil)
 	}
 	
 	/// Icons from [Icons8](https://icons8.com)
 	@available(iOS 13.0, *)
 	public var uiGlyph: UIImage? {
-		return UIImage(named: glyphName, in: .module, compatibleWith: nil)
+		return UIImage(named: glyphName, in: .fixedModule, compatibleWith: nil)
 	}
 	
 	@available(iOS 13.0, *)
