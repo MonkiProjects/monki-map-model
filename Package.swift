@@ -13,7 +13,7 @@ let package = Package(
 	],
 	products: [
 		.library(
-			name: "MonkiMapModel",
+			name: "Model",
 			targets: ["MonkiMapModel"]
 		),
 	],
