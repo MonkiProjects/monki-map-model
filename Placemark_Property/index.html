@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkiMapModel - Placemark.Property</title>
+    <link rel="stylesheet" type="text/css" href="/monki-map-model/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/monki-map-model/">
+            <strong>
+                MonkiMapModel
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Nested Types</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.property.id">id</a></li><li class="variable"><a href="#placemark.property.kind">kind</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#placemark.property.`internal`(in:)">`internal`(in:​)</a></li><li class="function"><a href="#placemark.property.title(in:)">title(in:​)</a></li><li class="function"><a href="#placemark.property.localized(in:)">localized(in:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Placemark.​Property</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">struct</span> <span class="type">Property</span></code></pre></body></html>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="enumeration"><code><a href="/monki-map-model/Placemark">Placemark</a></code></dt>
+<dd></dd>
+</dl>
+<h3>Nested Types</h3>
+<dl>
+    <dt class="enumeration"><code><a href="/monki-map-model/Placemark_Property_Kind">Placemark.Property.Kind</a></code></dt>
+<dd></dd>
+<dt class="structure"><code><a href="/monki-map-model/Placemark_Property_Localized">Placemark.Property.Localized</a></code></dt>
+<dd></dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="placemark.property.id">
+    <h3>
+        <code>id</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">id</span>: <span class="type">String</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.property.kind">
+    <h3>
+        <code>kind</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">kind</span>: <span class="type">Kind</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="placemark.property.`internal`(in:)">
+    <h3>
+        <code>`internal`(in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">internal</span> <span class="keyword">func</span> <span class="function">`internal`</span>(<span class="variable">in</span> <span class="variable">locale</span>: <span class="type">Locale</span> = <span class="variable">Locale</span>.<span class="type">current</span>) <span class="keyword">throws</span> -&gt; <a href="/monki-map-model/Placemark"><span class="type">Placemark</span></a>.<span class="type">Properties</span>.<span class="type">Internal</span></code></pre></body></html>
+</div>
+<div role="article" class="function" id="placemark.property.title(in:)">
+    <h3>
+        <code>title(in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">func</span> <span class="function">title</span>(<span class="variable">in</span> <span class="variable">locale</span>: <span class="type">Locale</span> = <span class="variable">Locale</span>.<span class="type">current</span>) <span class="keyword">throws</span> -&gt; <span class="type">String</span></code></pre></body></html>
+</div>
+<div role="article" class="function" id="placemark.property.localized(in:)">
+    <h3>
+        <code>localized(in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">func</span> <span class="function">localized</span>(<span class="variable">in</span> <span class="variable">locale</span>: <span class="type">Locale</span> = <span class="variable">Locale</span>.<span class="type">current</span>) <span class="keyword">throws</span> -&gt; <span class="type">Localized</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-02-08T21:49:21+0000">February 8, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>
