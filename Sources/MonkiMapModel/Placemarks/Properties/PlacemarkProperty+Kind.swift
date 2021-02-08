@@ -10,8 +10,21 @@ import Foundation
 
 public extension Placemark.Property {
 	
+	/// The kind of a placemark property.
 	enum Kind: String, Codable {
-		case feature, technique, benefit, hazard
+		
+		/// A feature you might find on a placemark.
+		case feature
+		
+		/// A technique one could train on a placemark.
+		case technique
+		
+		/// A benefit some placemark could have.
+		case benefit
+		
+		/// A hazard you might encounter on a placemark.
+		case hazard
+		
 	}
 	
 	static func feature(_ feature: ID) -> Self {

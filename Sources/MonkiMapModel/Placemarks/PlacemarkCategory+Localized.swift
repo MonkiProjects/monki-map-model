@@ -10,6 +10,16 @@ import Foundation
 
 public extension Placemark.Category {
 	
+	/// A localized `Placemark.Category`.
+	/// It's used by APIs to return localized content.
+	///
+	/// # Example #
+	/// ```json
+	/// {
+	///     "id": "spot",
+	///     "title": "Spot"
+	/// }
+	/// ```
 	struct Localized: Codable, Equatable, Identifiable {
 		
 		public let id: Placemark.Category

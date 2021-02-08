@@ -11,6 +11,8 @@ import MonkiProjectsModel
 
 public extension Placemark {
 	
+	/// The category of a placemark.
+	/// It impacts its color and/or shape on the map.
 	enum Category: String, Codable, Hashable, DefaultCaseDecodable {
 		
 		case unknown

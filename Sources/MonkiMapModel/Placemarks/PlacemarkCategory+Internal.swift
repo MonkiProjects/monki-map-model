@@ -10,6 +10,18 @@ import Foundation
 
 extension Placemark.Category {
 	
+	/// The internal structure of `Placemark.Category`.
+	/// It's used in localized `.plist` files.
+	///
+	/// # Example #
+	/// ```xml
+	/// <dict>
+	///     <key>id</key>
+	///     <string>spot</string>
+	///     <key>title</key>
+	///     <string>Spot</string>
+	/// </dict>
+	/// ```
 	struct Internal: Codable, Hashable, Identifiable, PlistDecodable {
 		
 		static let fileName = "PlacemarkCategories"

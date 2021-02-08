@@ -11,6 +11,8 @@ import MonkiProjectsModel
 
 public extension Placemark {
 	
+	/// The kind of a placemark.
+	/// It impacts its icon on a map marker.
 	enum Kind: String, Codable, Hashable, DefaultCaseDecodable {
 		
 		case unknown

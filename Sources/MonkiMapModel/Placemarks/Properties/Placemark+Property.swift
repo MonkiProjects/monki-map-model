@@ -11,6 +11,7 @@ import MonkiProjectsModel
 
 public extension Placemark {
 	
+	// A property a placemark could have
 	struct Property: Identifiable {
 		public let id: String
 		public let kind: Kind

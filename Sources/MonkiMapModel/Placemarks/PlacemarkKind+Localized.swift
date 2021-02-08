@@ -10,6 +10,16 @@ import Foundation
 
 public extension Placemark.Kind {
 	
+	/// A localized `Placemark.Kind`.
+	/// It's used by APIs to return localized content.
+	///
+	/// # Example #
+	/// ```json
+	/// {
+	///     "id": "training_spot",
+	///     "title": "Training Spot"
+	/// }
+	/// ```
 	struct Localized: Codable, Equatable, Identifiable {
 		
 		public let id: Placemark.Kind

@@ -10,6 +10,40 @@ import Foundation
 
 extension Placemark.Kind {
 	
+	/// The internal structure of `Placemark.Kind`.
+	/// It's used in localized `.plist` files.
+	///
+	/// # Example #
+	/// ```xml
+	/// <dict>
+	///     <key>id</key>
+	///     <string>training_spot</string>
+	///     <key>title</key>
+	///     <string>Training Spot</string>
+	///     <key>category</key>
+	///     <string>spot</string>
+	///     <key>features</key>
+	///     <array>
+	///         <string>small_wall</string>
+	///         <string>medium_wall</string>
+	///     </array>
+	///     <key>goodForTraining</key>
+	///     <array>
+	///         <string>precision_jump</string>
+	///         <string>kong</string>
+	///     </array>
+	///     <key>benefits</key>
+	///     <array>
+	///         <string>drinking_fountain</string>
+	///         <string>covered_area</string>
+	///     </array>
+	///     <key>hazards</key>
+	///     <array>
+	///         <string>security</string>
+	///         <string>security_cam</string>
+	///     </array>
+	/// </dict>
+	/// ```
 	struct Internal: Codable, Hashable, Identifiable, PlistDecodable {
 		
 		typealias Property = Placemark.Property

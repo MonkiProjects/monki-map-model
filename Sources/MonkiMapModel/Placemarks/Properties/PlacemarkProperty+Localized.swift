@@ -10,6 +10,17 @@ import Foundation
 
 public extension Placemark.Property {
 	
+	/// A localized `Placemark.Property`.
+	/// It's used by APIs to return localized content.
+	///
+	/// # Example #
+	/// ```json
+	/// {
+	///     "id": "small_wall",
+	///     "title": "Small Wall",
+	///     "kind": "feature"
+	/// }
+	/// ```
 	struct Localized: Codable, Equatable, Identifiable {
 		
 		public let id: String
