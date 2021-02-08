@@ -11,10 +11,13 @@ import XCTest
 
 final class PlacemarkBenefitLocalizedTests: XCTestCase {
 	
+	typealias Properties = Placemark.Properties
+	typealias Benefit = Properties.Benefit
+	
 	// MARK: - Valid Domain
 	
-	private let translations: [String: [PlacemarkBenefit: String]] = [
-		"en": [
+	private let translations: [Locale: [Benefit: String]] = [
+		.en: [
 			.unknown: "Unknown",
 			.drinkingFountain: "Drinking fountain",
 			.coveredArea: "Covered area",
@@ -25,7 +28,7 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 			.equipmentRental: "Equipment rental",
 			.shop: "Shop",
 		],
-		"fr": [
+		.fr: [
 			.unknown: "Inconnu",
 			.drinkingFountain: "Fontaine à eau",
 			.coveredArea: "Espace couvert",
@@ -39,7 +42,7 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 	]
 	
 	func testTranslations() {
-		for benefit in PlacemarkBenefit.allCases {
+		for benefit in Benefit.allCases {
 			for (locale, translations) in translations {
 				XCTAssert(
 					translations[benefit] != nil,
@@ -51,7 +54,7 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 		for (locale, translations) in translations {
 			for (benefit, title) in translations {
 				do {
-					let expected = try benefit.title(in: Locale(identifier: locale))
+					let expected = try Properties.benefit(benefit).title(in: locale)
 					XCTAssertEqual(expected, title)
 				} catch {
 					XCTFail("\(error)")
@@ -62,74 +65,36 @@ final class PlacemarkBenefitLocalizedTests: XCTestCase {
 	
 	func testLocalizedBenefitHasCorrectTitle() throws {
 		let id = "well_known"
+		let property = Properties.benefit(.wellKnown)
 		
 		// Test English translation
 		do {
-			let expected = try PlacemarkBenefit.Localized(id: id, title: "Well known")
-			let result = try PlacemarkBenefit.wellKnown.localized(in: Locale.en)
-			XCTAssertEqual(result.id, .wellKnown)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.en)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Well known")
 		}
 		
 		// Test French translation
 		do {
-			let expected = try PlacemarkBenefit.Localized(id: id, title: "Très connu")
-			let result = try PlacemarkBenefit.wellKnown.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, .wellKnown)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.fr)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Très connu")
 		}
 	}
 	
-	func testValidIdsDoNotThrow() {
-		let validIds = ["test_match", "7+_floors", "valid", "va_lid", "6_floors", "floors_7+", "a", "a_b", "a_b_c"]
-		
-		for id in validIds {
-			XCTAssertNoThrow(
-				try PlacemarkBenefit.Localized(id: id, title: id),
-				"id '\(id)' is invalid"
+	func testAllEnumCasesExist() throws {
+		for locale in Locale.supported {
+			let localized = Properties.Internal.all(in: locale).filter { $0.kind == .benefit }
+			
+			// Test will also fail if too many cases are defined
+			XCTAssertEqual(
+				localized.count,
+				Benefit.allCases.count - 1, // - 1 because of .unknown case
+				localized.filter({ $0.id == "unknown" }).map(\.title).description
 			)
 		}
-	}
-	
-	func testLocalizedBenefitsAreIdentifiable() throws {
-		let benefit1 = try PlacemarkBenefit.Localized(id: "shared_id", title: "Name in a language")
-		let benefit2 = try PlacemarkBenefit.Localized(id: "shared_id", title: "Name in another language")
-		XCTAssertEqual(benefit1, benefit2)
 	}
 	
 	// MARK: - Invalid Domain
-	
-	func testInvalidIdThrows() {
-		let invalidIds = [
-			"in__valid", "invalid_", "_invalid", "in_valid_", "in-valid",
-			"in/valid", "in\\valid", "in.valid", "in|valid", "in,valid",
-			"in++_valid", "in_valid++",
-			"ìnvalid",
-		]
-		
-		for id in invalidIds {
-			XCTAssertThrowsError(
-				try PlacemarkBenefit.Localized(id: id, title: id),
-				"id '\(id)' is not invalid"
-			)
-		}
-	}
-	
-	func testLocalizedBenefitsAreDifferentIfIdsDiffer() throws {
-		let benefit1 = try PlacemarkBenefit.Localized(id: "drinking_fountain", title: "Shared name")
-		let benefit2 = try PlacemarkBenefit.Localized(id: "covered_area", title: "Shared name")
-		XCTAssertNotEqual(benefit1, benefit2)
-	}
-	
-	// MARK: - Manifest
-	
-	static var allTests = [
-		("testTranslations", testTranslations),
-		("testLocalizedBenefitHasCorrectTitle", testLocalizedBenefitHasCorrectTitle),
-		("testValidIdsDoNotThrow", testValidIdsDoNotThrow),
-		("testLocalizedBenefitsAreIdentifiable", testLocalizedBenefitsAreIdentifiable),
-		("testInvalidIdThrows", testInvalidIdThrows),
-		("testLocalizedBenefitsAreDifferentIfIdsDiffer", testLocalizedBenefitsAreDifferentIfIdsDiffer),
-	]
 	
 }

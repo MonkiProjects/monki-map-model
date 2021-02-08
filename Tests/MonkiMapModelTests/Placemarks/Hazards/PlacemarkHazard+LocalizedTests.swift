@@ -11,10 +11,13 @@ import XCTest
 
 final class PlacemarkHazardLocalizedTests: XCTestCase {
 	
+	typealias Properties = Placemark.Properties
+	typealias Hazard = Properties.Hazard
+	
 	// MARK: - Valid Domain
 	
-	private let translations: [String: [PlacemarkHazard: String]] = [
-		"en": [
+	private let translations: [Locale: [Hazard: String]] = [
+		.en: [
 			.unknown: "Unknown",
 			.security: "Security",
 			.securityCam: "Security cam",
@@ -25,7 +28,7 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 			.alarm: "Alarm",
 			.deathDrop: "Death drop",
 		],
-		"fr": [
+		.fr: [
 			.unknown: "Inconnu",
 			.security: "Sécurité",
 			.securityCam: "Caméra de sécurité",
@@ -39,7 +42,7 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 	]
 	
 	func testTranslations() {
-		for hazard in PlacemarkHazard.allCases {
+		for hazard in Hazard.allCases {
 			for (locale, translations) in translations {
 				XCTAssert(
 					translations[hazard] != nil,
@@ -51,7 +54,7 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 		for (locale, translations) in translations {
 			for (hazard, title) in translations {
 				do {
-					let expected = try hazard.title(in: Locale(identifier: locale))
+					let expected = try Properties.hazard(hazard).title(in: locale)
 					XCTAssertEqual(expected, title)
 				} catch {
 					XCTFail("\(error)")
@@ -62,74 +65,36 @@ final class PlacemarkHazardLocalizedTests: XCTestCase {
 	
 	func testLocalizedHazardHasCorrectTitle() throws {
 		let id = "security"
+		let property = Properties.hazard(.security)
 		
 		// Test English translation
 		do {
-			let expected = try PlacemarkHazard.Localized(id: id, title: "Security")
-			let result = try PlacemarkHazard.security.localized(in: Locale.en)
-			XCTAssertEqual(result.id, .security)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.en)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Security")
 		}
 		
 		// Test French translation
 		do {
-			let expected = try PlacemarkHazard.Localized(id: id, title: "Sécurité")
-			let result = try PlacemarkHazard.security.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, .security)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.fr)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Sécurité")
 		}
 	}
 	
-	func testValidIdsDoNotThrow() {
-		let validIds = ["test_match", "7+_floors", "valid", "va_lid", "6_floors", "floors_7+", "a", "a_b", "a_b_c"]
-		
-		for id in validIds {
-			XCTAssertNoThrow(
-				try PlacemarkHazard.Localized(id: id, title: id),
-				"id '\(id)' is invalid"
+	func testAllEnumCasesExist() throws {
+		for locale in Locale.supported {
+			let localized = Properties.Internal.all(in: locale).filter { $0.kind == .hazard }
+			
+			// Test will also fail if too many cases are defined
+			XCTAssertEqual(
+				localized.count,
+				Hazard.allCases.count - 1, // - 1 because of .unknown case
+				localized.filter({ $0.id == "unknown" }).map(\.title).description
 			)
 		}
-	}
-	
-	func testLocalizedHazardsAreIdentifiable() throws {
-		let hazard1 = try PlacemarkHazard.Localized(id: "shared_id", title: "Name in a language")
-		let hazard2 = try PlacemarkHazard.Localized(id: "shared_id", title: "Name in another language")
-		XCTAssertEqual(hazard1, hazard2)
 	}
 	
 	// MARK: - Invalid Domain
-	
-	func testInvalidIdThrows() {
-		let invalidIds = [
-			"in__valid", "invalid_", "_invalid", "in_valid_", "in-valid",
-			"in/valid", "in\\valid", "in.valid", "in|valid", "in,valid",
-			"in++_valid", "in_valid++",
-			"ìnvalid",
-		]
-		
-		for id in invalidIds {
-			XCTAssertThrowsError(
-				try PlacemarkHazard.Localized(id: id, title: id),
-				"id '\(id)' is not invalid"
-			)
-		}
-	}
-	
-	func testLocalizedHazardsAreDifferentIfIdsDiffer() throws {
-		let hazard1 = try PlacemarkHazard.Localized(id: "security", title: "Shared name")
-		let hazard2 = try PlacemarkHazard.Localized(id: "security_cam", title: "Shared name")
-		XCTAssertNotEqual(hazard1, hazard2)
-	}
-	
-	// MARK: - Manifest
-	
-	static var allTests = [
-		("testTranslations", testTranslations),
-		("testLocalizedHazardHasCorrectTitle", testLocalizedHazardHasCorrectTitle),
-		("testValidIdsDoNotThrow", testValidIdsDoNotThrow),
-		("testLocalizedHazardsAreIdentifiable", testLocalizedHazardsAreIdentifiable),
-		("testInvalidIdThrows", testInvalidIdThrows),
-		("testLocalizedHazardsAreDifferentIfIdsDiffer", testLocalizedHazardsAreDifferentIfIdsDiffer),
-	]
 	
 }

@@ -11,25 +11,27 @@ import XCTest
 
 final class PlacemarkCategoryLocalizedTests: XCTestCase {
 	
+	typealias Category = Placemark.Category
+	
 	// MARK: - Valid Domain
 	
-	private let translations: [String: [PlacemarkCategory: String]] = [
-		"en": [
+	private let translations: [Locale: [Placemark.Category: String]] = [
+		.en: [
 			.unknown: "Unknown",
 			.spot: "Spot",
 			.facility: "Facility",
-			.drinkingWater: "Drinking Water",
+			.miscellaneous: "Miscellaneous",
 		],
-		"fr": [
+		.fr: [
 			.unknown: "Inconnu",
 			.spot: "Spot",
 			.facility: "Salle",
-			.drinkingWater: "Eau potable",
+			.miscellaneous: "Divers",
 		],
 	]
 	
 	func testTranslations() {
-		for category in PlacemarkCategory.allCases {
+		for category in Category.allCases {
 			for (locale, translations) in translations {
 				XCTAssert(
 					translations[category] != nil,
@@ -41,7 +43,7 @@ final class PlacemarkCategoryLocalizedTests: XCTestCase {
 		for (locale, translations) in translations {
 			for (category, title) in translations {
 				do {
-					let expected = try category.title(in: Locale(identifier: locale))
+					let expected = try category.title(in: locale)
 					XCTAssertEqual(expected, title)
 				} catch {
 					XCTFail("\(error)")
@@ -51,44 +53,36 @@ final class PlacemarkCategoryLocalizedTests: XCTestCase {
 	}
 	
 	func testLocalizedCategoryHasCorrectTitle() throws {
+		let id = Category.facility
+		
 		// Test English translation
 		do {
-			let expected = PlacemarkCategory.Localized(id: .facility, title: "Facility")
-			let result = try PlacemarkCategory.facility.localized(in: Locale.en)
-			XCTAssertEqual(result.id, expected.id)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try Category.facility.localized(in: Locale.en)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Facility")
 		}
 		
 		// Test French translation
 		do {
-			let expected = PlacemarkCategory.Localized(id: .facility, title: "Salle")
-			let result = try PlacemarkCategory.facility.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, expected.id)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try Category.facility.localized(in: Locale.fr)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Salle")
 		}
 	}
 	
-	func testLocalizedCategoriesAreIdentifiable() throws {
-		let category1 = PlacemarkCategory.Localized(id: .spot, title: "Name in a language")
-		let category2 = PlacemarkCategory.Localized(id: .spot, title: "Name in another language")
-		XCTAssertEqual(category1, category2)
+	func testAllEnumCasesExist() throws {
+		for locale in Locale.supported {
+			let localized = Category.Internal.all(in: locale)
+			
+			// Test will also fail if too many cases are defined
+			XCTAssertEqual(
+				localized.count,
+				Category.allCases.count - 1, // - 1 because of .unknown case
+				localized.filter({ $0.id == .unknown }).map(\.title).description
+			)
+		}
 	}
 	
 	// MARK: - Invalid Domain
-	
-	func testLocalizedCategoriesAreDifferentIfIdsDiffer() throws {
-		let category1 = PlacemarkCategory.Localized(id: .spot, title: "Shared name")
-		let category2 = PlacemarkCategory.Localized(id: .facility, title: "Shared name")
-		XCTAssertNotEqual(category1, category2)
-	}
-	
-	// MARK: - Manifest
-	
-	static var allTests = [
-		("testTranslations", testTranslations),
-		("testLocalizedCategoryHasCorrectTitle", testLocalizedCategoryHasCorrectTitle),
-		("testLocalizedCategoriesAreIdentifiable", testLocalizedCategoriesAreIdentifiable),
-		("testLocalizedCategoriesAreDifferentIfIdsDiffer", testLocalizedCategoriesAreDifferentIfIdsDiffer),
-	]
 	
 }

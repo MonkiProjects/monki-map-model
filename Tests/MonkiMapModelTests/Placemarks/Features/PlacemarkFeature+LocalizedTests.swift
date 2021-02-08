@@ -11,10 +11,13 @@ import XCTest
 
 final class PlacemarkFeatureLocalizedTests: XCTestCase {
 	
+	typealias Properties = Placemark.Properties
+	typealias Feature = Properties.Feature
+	
 	// MARK: - Valid Domain
 	
-	private let translations: [String: [PlacemarkFeature: String]] = [
-		"en": [
+	private let translations: [Locale: [Feature: String]] = [
+		.en: [
 			.unknown: "Unknown",
 			.smallWall: "Small Wall",
 			.mediumWall: "Medium Wall",
@@ -48,7 +51,7 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 			.moreThanSevenFloors: "7+ Floors",
 			.bench: "Bench",
 		],
-		"fr": [
+		.fr: [
 			.unknown: "Inconnu",
 			.smallWall: "Petit mur",
 			.mediumWall: "Mur moyen",
@@ -85,7 +88,7 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 	]
 	
 	func testTranslations() {
-		for feature in PlacemarkFeature.allCases {
+		for feature in Feature.allCases {
 			for (locale, translations) in translations {
 				XCTAssert(
 					translations[feature] != nil,
@@ -97,7 +100,7 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 		for (locale, translations) in translations {
 			for (feature, title) in translations {
 				do {
-					let expected = try feature.title(in: Locale(identifier: locale))
+					let expected = try Properties.feature(feature).title(in: locale)
 					XCTAssertEqual(expected, title)
 				} catch {
 					XCTFail("\(error)")
@@ -108,74 +111,36 @@ final class PlacemarkFeatureLocalizedTests: XCTestCase {
 	
 	func testLocalizedFeatureHasCorrectTitle() throws {
 		let id = "small_wall"
+		let property = Properties.feature(.smallWall)
 		
 		// Test English translation
 		do {
-			let expected = try PlacemarkFeature.Localized(id: id, title: "Small Wall")
-			let result = try PlacemarkFeature.smallWall.localized(in: Locale.en)
-			XCTAssertEqual(result.id, .smallWall)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.en)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Small Wall")
 		}
 		
 		// Test French translation
 		do {
-			let expected = try PlacemarkFeature.Localized(id: id, title: "Petit mur")
-			let result = try PlacemarkFeature.smallWall.localized(in: Locale.fr)
-			XCTAssertEqual(result.id, .smallWall)
-			XCTAssertEqual(result.title, expected.title)
+			let result = try property.localized(in: Locale.fr)
+			XCTAssertEqual(result.id, id)
+			XCTAssertEqual(result.title, "Petit mur")
 		}
 	}
 	
-	func testValidIdsDoNotThrow() {
-		let validIds = ["test_match", "7+_floors", "valid", "va_lid", "6_floors", "floors_7+", "a", "a_b", "a_b_c"]
-		
-		for id in validIds {
-			XCTAssertNoThrow(
-				try PlacemarkFeature.Localized(id: id, title: id),
-				"id '\(id)' is invalid"
+	func testAllEnumCasesExist() throws {
+		for locale in Locale.supported {
+			let localized = Properties.Internal.all(in: locale).filter { $0.kind == .feature }
+			
+			// Test will also fail if too many cases are defined
+			XCTAssertEqual(
+				localized.count,
+				Feature.allCases.count - 1, // - 1 because of .unknown case
+				localized.filter({ $0.id == "unknown" }).map(\.title).description
 			)
 		}
-	}
-	
-	func testLocalizedFeaturesAreIdentifiable() throws {
-		let feature1 = try PlacemarkFeature.Localized(id: "shared_id", title: "Name in a language")
-		let feature2 = try PlacemarkFeature.Localized(id: "shared_id", title: "Name in another language")
-		XCTAssertEqual(feature1, feature2)
 	}
 	
 	// MARK: - Invalid Domain
-	
-	func testInvalidIdThrows() {
-		let invalidIds = [
-			"in__valid", "invalid_", "_invalid", "in_valid_", "in-valid",
-			"in/valid", "in\\valid", "in.valid", "in|valid", "in,valid",
-			"in++_valid", "in_valid++",
-			"ìnvalid",
-		]
-		
-		for id in invalidIds {
-			XCTAssertThrowsError(
-				try PlacemarkFeature.Localized(id: id, title: id),
-				"id '\(id)' is not invalid"
-			)
-		}
-	}
-	
-	func testLocalizedFeaturesAreDifferentIfIdsDiffer() throws {
-		let feature1 = try PlacemarkFeature.Localized(id: "small_wall", title: "Shared name")
-		let feature2 = try PlacemarkFeature.Localized(id: "medium_wall", title: "Shared name")
-		XCTAssertNotEqual(feature1, feature2)
-	}
-	
-	// MARK: - Manifest
-	
-	static var allTests = [
-		("testTranslations", testTranslations),
-		("testLocalizedFeatureHasCorrectTitle", testLocalizedFeatureHasCorrectTitle),
-		("testValidIdsDoNotThrow", testValidIdsDoNotThrow),
-		("testLocalizedFeaturesAreIdentifiable", testLocalizedFeaturesAreIdentifiable),
-		("testInvalidIdThrows", testInvalidIdThrows),
-		("testLocalizedFeaturesAreDifferentIfIdsDiffer", testLocalizedFeaturesAreDifferentIfIdsDiffer),
-	]
 	
 }

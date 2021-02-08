@@ -12,14 +12,10 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 	
 	public let id: UUID
 	public var title: String
-	public var latitude: Double
-	public var longitude: Double
-	public var publicationStatus: PlacemarkPublicationStatus
-	public var type: PlacemarkType
-	public var category: PlacemarkCategory
-	public var isLiked: Bool
-	public var isFavorited: Bool
-	public var userCount: Int
+	public var latitude, longitude: Double
+	public var state: Placemark.State
+	public var kind: Placemark.Kind
+	public var category: Placemark.Category
 	/// Used to update data client-side
 	public var updatedAt: Date
 	
@@ -28,34 +24,26 @@ public struct PlacemarkAnnotationModel: Codable, Hashable, Identifiable {
 		title: String,
 		latitude: Double,
 		longitude: Double,
-		publicationStatus: PlacemarkPublicationStatus = .local,
-		type: PlacemarkType = .defaultCase,
-		category: PlacemarkCategory = .defaultCase,
-		isLiked: Bool = false,
-		isFavorited: Bool = false,
-		userCount: Int = 0,
+		state: Placemark.State = .local,
+		kind: Placemark.Kind = .defaultCase,
+		category: Placemark.Category = .defaultCase,
 		updatedAt: Date = Date()
 	) {
 		self.id = id
 		self.title = title
 		self.latitude = latitude
 		self.longitude = longitude
-		self.publicationStatus = publicationStatus
-		self.type = type
+		self.state = state
+		self.kind = kind
 		self.category = category
-		self.isLiked = isLiked
-		self.isFavorited = isFavorited
-		self.userCount = userCount
 		self.updatedAt = updatedAt
 	}
 	
 }
 
-// swiftlint:disable identifier_name
 extension PlacemarkAnnotationModel: PlacemarkProtocol {
 	
-	public var _type: PlacemarkType { type }
-	public var _category: PlacemarkCategory { category }
+	public var kindId: Placemark.Kind { kind }
+	public var categoryId: Placemark.Category { category }
 	
 }
-// swiftlint:enable identifier_name
