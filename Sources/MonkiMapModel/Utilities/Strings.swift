@@ -52,7 +52,7 @@ enum Strings {
 		guard let localizedBundle = Bundle(url: url) else {
 			throw NilError(type: Bundle.self)
 		}
-		return localizedBundle.localizedString(forKey: "Unknown", value: nil, table: nil)
+		return localizedBundle.localizedString(forKey: "UNKNOWN", value: nil, table: nil)
 	}
 	// swiftlint:enable line_length
 	
