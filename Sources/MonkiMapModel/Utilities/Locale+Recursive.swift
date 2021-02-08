@@ -19,7 +19,7 @@ extension Locale {
 		// Keep only language and country codes
 		components = [
 			Self.languageCodeKey: components[Self.languageCodeKey],
-			Self.countryCodeKey: components[Self.countryCodeKey]
+			Self.countryCodeKey: components[Self.countryCodeKey],
 		].compactMapValues({ $0 })
 		
 		// `Locale` from components constructor
