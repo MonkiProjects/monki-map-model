@@ -13,7 +13,6 @@ extension Placemark.Kind {
 	struct Internal: Codable, Hashable, Identifiable, PlistDecodable {
 		
 		typealias Property = Placemark.Property
-		typealias Properties = Placemark.Properties
 		
 		static let fileName = "PlacemarkKinds"
 		
@@ -22,28 +21,20 @@ extension Placemark.Kind {
 		let category: Placemark.Category
 		private let features, goodForTraining, benefits, hazards: [String]
 		
-		var allowedFeatures: [Placemark.Property] {
-			return features
-				.map(Properties.Feature.init(rawValue:))
-				.map(Properties.feature)
+		var allowedFeatures: [Property] {
+			return features.map(Property.feature)
 		}
 		
 		var allowedTechniques: [Property] {
-			return goodForTraining
-				.map(Properties.Technique.init(rawValue:))
-				.map(Properties.technique)
+			return goodForTraining.map(Property.technique)
 		}
 		
 		var allowedBenefits: [Property] {
-			return benefits
-				.map(Properties.Benefit.init(rawValue:))
-				.map(Properties.benefit)
+			return benefits.map(Property.benefit)
 		}
 		
 		var allowedHazards: [Property] {
-			return hazards
-				.map(Properties.Hazard.init(rawValue:))
-				.map(Properties.hazard)
+			return hazards.map(Property.hazard)
 		}
 		
 	}

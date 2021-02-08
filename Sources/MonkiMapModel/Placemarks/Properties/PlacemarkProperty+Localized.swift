@@ -14,9 +14,9 @@ public extension Placemark.Property {
 		
 		public let id: String
 		public let title: String
-		public let kind: Placemark.Property.Kind
+		public let kind: Kind
 		
-		fileprivate init(id: ID, title: String, kind: Placemark.Property.Kind) {
+		fileprivate init(id: ID, title: String, kind: Kind) {
 			// No need to check id, it comes from enum cases
 			self.id = id
 			self.title = title
@@ -25,8 +25,8 @@ public extension Placemark.Property {
 		
 	}
 	
-	internal func `internal`(in locale: Locale = Locale.current) throws -> Placemark.Properties.Internal {
-		return try Placemark.Properties.Internal.all(in: locale)
+	internal func `internal`(in locale: Locale = Locale.current) throws -> Internal {
+		return try Internal.all(in: locale)
 			.first(where: { $0.id == self.id && $0.kind == self.kind })
 			.require()
 	}

@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension Placemark.Properties {
+extension Placemark.Property {
 	
-	struct Internal: PlistDecodable {
+	struct Internal: PlistDecodable, Identifiable {
 		
 		static let fileName = "PlacemarkProperties"
 		
 		let id, title: String
-		let kind: Placemark.Property.Kind
+		let kind: Kind
 		
 	}
 	

@@ -14,4 +14,20 @@ public extension Placemark.Property {
 		case feature, technique, benefit, hazard
 	}
 	
+	static func feature(_ feature: ID) -> Self {
+		return .init(id: feature, kind: .feature)
+	}
+	
+	static func technique(_ technique: ID) -> Self {
+		return .init(id: technique, kind: .technique)
+	}
+	
+	static func benefit(_ benefit: ID) -> Self {
+		return .init(id: benefit, kind: .benefit)
+	}
+	
+	static func hazard(_ hazard: ID) -> Self {
+		return .init(id: hazard, kind: .hazard)
+	}
+	
 }
