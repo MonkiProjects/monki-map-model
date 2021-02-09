@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "monki-projects-model",
-        "repositoryURL": "https://github.com/MonkiProjects/monki-projects-model.git",
+        "repositoryURL": "https://github.com/MonkiProjects/monki-projects-model-swift.git",
         "state": {
-          "branch": "master",
-          "revision": "154b625fbf33a252c3e83fae80644fc478dc9aca",
+          "branch": "main",
+          "revision": "7e9aee179426f299f52dfbb2aa58e6ba51769a43",
           "version": null
         }
       }
