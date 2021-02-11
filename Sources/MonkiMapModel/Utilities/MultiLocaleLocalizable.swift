@@ -5,7 +5,7 @@
 //  Created by Rémi Bardon on 29/10/2020.
 //
 
-import Foundation.NSLocale
+import Foundation
 
 public protocol MultiLocaleLocalizable {
 	

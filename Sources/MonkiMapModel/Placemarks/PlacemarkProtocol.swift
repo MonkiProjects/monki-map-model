@@ -6,7 +6,7 @@
 //  Copyright © 2020 Monki Projects. All rights reserved.
 //
 
-import Foundation.NSUUID
+import Foundation
 
 protocol PlacemarkProtocol {
 	

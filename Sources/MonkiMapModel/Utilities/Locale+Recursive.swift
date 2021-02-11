@@ -6,12 +6,16 @@
 //  Copyright © 2020 Monki Projects. All rights reserved.
 //
 
-import Foundation.NSLocale
+import Foundation
 
 extension Locale {
 	
-	static var languageCodeKey: String { CFLocaleKey.languageCode.rawValue as String }
-	static var countryCodeKey: String { CFLocaleKey.countryCode.rawValue as String }
+	/// Raw value of `CFLocaleKey.languageCode`.
+	/// Returned as a plain string because `CoreFoundation` isn't available on Linux.
+	static var languageCodeKey: String { "kCFLocaleLanguageCodeKey" }
+	/// Raw value of `CFLocaleKey.countryCode`.
+	/// Returned as a plain string because `CoreFoundation` isn't available on Linux.
+	static var countryCodeKey: String { "kCFLocaleCountryCodeKey" }
 	
 	func firstMatch<Output>(in function: (Locale) throws -> (Output)) rethrows -> Output {
 		var components = Locale.components(fromIdentifier: self.identifier)
