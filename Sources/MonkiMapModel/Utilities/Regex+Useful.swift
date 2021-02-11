@@ -11,7 +11,10 @@ import Foundation
 let __idRegex = "[a-z0-9]+\\+?(_[a-z0-9]+\\+?)*"
 // swiftlint:disable:previous identifier_name
 
-let __idPredicate = NSPredicate(format: "SELF MATCHES %@", __idRegex)
+let __idPredicate = NSPredicate { tested, _  in
+	guard let tested = tested as? String else { return false }
+	return tested ~= __idRegex
+}
 // swiftlint:disable:previous identifier_name
 
 extension String {
