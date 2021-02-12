@@ -8,14 +8,14 @@
 
 import Foundation
 
+// swiftlint:disable:next identifier_name
 let __idRegex = "[a-z0-9]+\\+?(_[a-z0-9]+\\+?)*"
-// swiftlint:disable:previous identifier_name
 
+// swiftlint:disable:next identifier_name
 let __idPredicate = NSPredicate { tested, _  in
 	guard let tested = tested as? String else { return false }
 	return tested ~= __idRegex
 }
-// swiftlint:disable:previous identifier_name
 
 extension String {
 	
