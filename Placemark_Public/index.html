@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.public.id">id</a></li><li class="variable"><a href="#placemark.public.name">name</a></li><li class="variable"><a href="#placemark.public.latitude">latitude</a></li><li class="variable"><a href="#placemark.public.longitude">longitude</a></li><li class="variable"><a href="#placemark.public.kind">kind</a></li><li class="variable"><a href="#placemark.public.category">category</a></li><li class="variable"><a href="#placemark.public.state">state</a></li><li class="variable"><a href="#placemark.public.creator">creator</a></li><li class="variable"><a href="#placemark.public.details">details</a></li><li class="variable"><a href="#placemark.public.updatedat">updated​At</a></li><li class="variable"><a href="#placemark.public.createdat">created​At</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#placemark.public.init(id:name:latitude:longitude:kind:category:state:creator:details:createdat:updatedat:)">init(id:​name:​latitude:​longitude:​kind:​category:​state:​creator:​details:​created​At:​updated​At:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.public.id">id</a></li><li class="variable"><a href="#placemark.public.name">name</a></li><li class="variable"><a href="#placemark.public.longitude">longitude</a></li><li class="variable"><a href="#placemark.public.latitude">latitude</a></li><li class="variable"><a href="#placemark.public.kind">kind</a></li><li class="variable"><a href="#placemark.public.category">category</a></li><li class="variable"><a href="#placemark.public.state">state</a></li><li class="variable"><a href="#placemark.public.creator">creator</a></li><li class="variable"><a href="#placemark.public.details">details</a></li><li class="variable"><a href="#placemark.public.createdat">created​At</a></li><li class="variable"><a href="#placemark.public.updatedat">updated​At</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -106,6 +106,16 @@
 <dt class="unknown"><code>Identifiable</code></dt>
 </dl>
 </section>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="placemark.public.init(id:name:latitude:longitude:kind:category:state:creator:details:createdat:updatedat:)">
+    <h3>
+        <code>init(id:​name:​latitude:​longitude:​kind:​category:​state:​creator:​details:​created​At:​updated​At:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">id</span>: <span class="type">UUID</span>, <span class="variable">name</span>: <span class="type">String</span>, <span class="variable">latitude</span>: <span class="type">Double</span>, <span class="variable">longitude</span>: <span class="type">Double</span>, <span class="variable">kind</span>: <a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Kind</span>, <span class="variable">category</span>: <a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Category</span>, <span class="variable">state</span>: <span class="type">State</span>, <span class="variable">creator</span>: <span class="type">UUID</span>, <span class="variable">details</span>: <span class="type">Details</span>.<span class="type">Public</span>, <span class="variable">createdAt</span>: <span class="type">Date</span>, <span class="variable">updatedAt</span>: <span class="type">Date</span>)</code></pre></body></html>
+</div>
+    </section>
     <section id="properties">
         <h2>Properties</h2>
 
@@ -121,17 +131,17 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">name</span>: <span class="type">String</span></code></pre></body></html>
 </div>
-<div role="article" class="variable" id="placemark.public.latitude">
-    <h3>
-        <code>latitude</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">latitude</span></code></pre></body></html>
-</div>
 <div role="article" class="variable" id="placemark.public.longitude">
     <h3>
         <code>longitude</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">longitude</span>: <span class="type">Double</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.public.latitude">
+    <h3>
+        <code>latitude</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">latitude</span></code></pre></body></html>
 </div>
 <div role="article" class="variable" id="placemark.public.kind">
     <h3>
@@ -163,17 +173,17 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">details</span>: <span class="type">Details</span>.<span class="type">Public</span></code></pre></body></html>
 </div>
-<div role="article" class="variable" id="placemark.public.updatedat">
-    <h3>
-        <code>updated​At</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">updatedAt</span>: <span class="type">Date</span></code></pre></body></html>
-</div>
 <div role="article" class="variable" id="placemark.public.createdat">
     <h3>
         <code>created​At</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">createdAt</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.public.updatedat">
+    <h3>
+        <code>updated​At</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">updatedAt</span>: <span class="type">Date</span></code></pre></body></html>
 </div>
     </section>
 
@@ -184,7 +194,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-02-12T00:09:45+0000">February 12, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-02-16T19:41:01+0000">February 16, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
