@@ -11,7 +11,14 @@ import Foundation
 public extension Placemark.Location {
 	
 	struct Public: Codable, Equatable {
+		
 		public let city, country: String
+		
+		public init(city: String, country: String) {
+			self.city = city
+			self.country = country
+		}
+		
 	}
 	
 }
