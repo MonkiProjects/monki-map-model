@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.details.public.caption">caption</a></li><li class="variable"><a href="#placemark.details.public.satelliteimage">satellite​Image</a></li><li class="variable"><a href="#placemark.details.public.images">images</a></li><li class="variable"><a href="#placemark.details.public.location">location</a></li><li class="variable"><a href="#placemark.details.public.goodfortraining">good​For​Training</a></li><li class="variable"><a href="#placemark.details.public.hazards">hazards</a></li><li class="variable"><a href="#placemark.details.public.benefits">benefits</a></li><li class="variable"><a href="#placemark.details.public.features">features</a></li><li class="variable"><a href="#placemark.details.public.allimages">all​Images</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#placemark.details.public.properties">Properties</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#placemark.details.public.init(caption:satelliteimage:images:location:features:goodfortraining:benefits:hazards:)">init(caption:​satellite​Image:​images:​location:​features:​good​For​Training:​benefits:​hazards:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.details.public.caption">caption</a></li><li class="variable"><a href="#placemark.details.public.satelliteimage">satellite​Image</a></li><li class="variable"><a href="#placemark.details.public.images">images</a></li><li class="variable"><a href="#placemark.details.public.location">location</a></li><li class="variable"><a href="#placemark.details.public.features">features</a></li><li class="variable"><a href="#placemark.details.public.hazards">hazards</a></li><li class="variable"><a href="#placemark.details.public.goodfortraining">good​For​Training</a></li><li class="variable"><a href="#placemark.details.public.benefits">benefits</a></li><li class="variable"><a href="#placemark.details.public.allimages">all​Images</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -89,6 +89,26 @@
     <dt class="unknown"><code>Codable</code></dt>
 </dl>
 </section>
+    <section id="nested type aliases">
+        <h2>Nested Type Aliases</h2>
+
+        <div role="article" class="typealias" id="placemark.details.public.properties">
+    <h3>
+        <code>Properties</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">Properties</span> = [<a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Property</span>.<span class="type">Localized</span>]</code></pre></body></html>
+</div>
+    </section>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="placemark.details.public.init(caption:satelliteimage:images:location:features:goodfortraining:benefits:hazards:)">
+    <h3>
+        <code>init(caption:​satellite​Image:​images:​location:​features:​good​For​Training:​benefits:​hazards:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">caption</span>: <span class="type">String</span>, <span class="variable">satelliteImage</span>: <span class="type">URL</span>, <span class="variable">images</span>: [<span class="type">URL</span>] = [], <span class="variable">location</span>: <a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Location</span>.<span class="type">Public</span>, <span class="variable">features</span>: <span class="type">Properties</span> = [], <span class="variable">goodForTraining</span>: <span class="type">Properties</span> = [], <span class="variable">benefits</span>: <span class="type">Properties</span> = [], <span class="variable">hazards</span>: <span class="type">Properties</span> = [])</code></pre></body></html>
+</div>
+    </section>
     <section id="properties">
         <h2>Properties</h2>
 
@@ -114,7 +134,19 @@
     <h3>
         <code>location</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">location</span>: <a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Location</span>.<span class="type">Public</span>?</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">location</span>: <a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Location</span>.<span class="type">Public</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.details.public.features">
+    <h3>
+        <code>features</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">features</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.details.public.hazards">
+    <h3>
+        <code>hazards</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hazards</span>: <span class="type">Properties</span></code></pre></body></html>
 </div>
 <div role="article" class="variable" id="placemark.details.public.goodfortraining">
     <h3>
@@ -122,23 +154,11 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">goodForTraining</span></code></pre></body></html>
 </div>
-<div role="article" class="variable" id="placemark.details.public.hazards">
-    <h3>
-        <code>hazards</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hazards</span>: [<a href="/monki-map-model-swift/Placemark"><span class="type">Placemark</span></a>.<span class="type">Property</span>.<span class="type">Localized</span>]</code></pre></body></html>
-</div>
 <div role="article" class="variable" id="placemark.details.public.benefits">
     <h3>
         <code>benefits</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">benefits</span></code></pre></body></html>
-</div>
-<div role="article" class="variable" id="placemark.details.public.features">
-    <h3>
-        <code>features</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">features</span></code></pre></body></html>
 </div>
 <div role="article" class="variable" id="placemark.details.public.allimages">
     <h3>
@@ -155,7 +175,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-02-16T19:41:01+0000">February 16, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-02-16T19:56:20+0000">February 16, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
