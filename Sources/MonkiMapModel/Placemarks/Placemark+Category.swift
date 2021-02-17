@@ -22,8 +22,12 @@ public extension Placemark {
 		
 		public static var defaultCase: Self = .unknown
 		
-		public init(for kind: Placemark.Kind) throws {
-			self = try kind.internal(in: Locale.en).category
+		public init(for kind: Placemark.Kind) {
+			do {
+				self = try kind.internal(in: Locale.en).category
+			} catch {
+				self = .unknown
+			}
 		}
 		
 	}
