@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Nested Types</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.property.id">id</a></li><li class="variable"><a href="#placemark.property.kind">kind</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#placemark.property.feature(_:)">feature(_:​)</a></li><li class="function"><a href="#placemark.property.technique(_:)">technique(_:​)</a></li><li class="function"><a href="#placemark.property.benefit(_:)">benefit(_:​)</a></li><li class="function"><a href="#placemark.property.hazard(_:)">hazard(_:​)</a></li><li class="function"><a href="#placemark.property.`internal`(in:)">`internal`(in:​)</a></li><li class="function"><a href="#placemark.property.title(in:)">title(in:​)</a></li><li class="function"><a href="#placemark.property.localized(in:)">localized(in:​)</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Nested Types</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.property.id">id</a></li><li class="variable"><a href="#placemark.property.kind">kind</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#placemark.property.all(in:)">all(in:​)</a></li><li class="function"><a href="#placemark.property.all(kind:in:)">all(kind:​in:​)</a></li><li class="function"><a href="#placemark.property.feature(_:)">feature(_:​)</a></li><li class="function"><a href="#placemark.property.technique(_:)">technique(_:​)</a></li><li class="function"><a href="#placemark.property.benefit(_:)">benefit(_:​)</a></li><li class="function"><a href="#placemark.property.hazard(_:)">hazard(_:​)</a></li><li class="function"><a href="#placemark.property.`internal`(in:)">`internal`(in:​)</a></li><li class="function"><a href="#placemark.property.title(in:)">title(in:​)</a></li><li class="function"><a href="#placemark.property.localized(in:)">localized(in:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -118,7 +118,19 @@ It's used by APIs to return localized content.</p>
     <section id="methods">
         <h2>Methods</h2>
 
-        <div role="article" class="function" id="placemark.property.feature(_:)">
+        <div role="article" class="function" id="placemark.property.all(in:)">
+    <h3>
+        <code>all(in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">all</span>(<span class="variable">in</span> <span class="variable">locale</span>: <span class="type">Locale</span> = <span class="variable">Locale</span>.<span class="type">current</span>) -&gt; [<span class="keyword">Self</span>]</code></pre></body></html>
+</div>
+<div role="article" class="function" id="placemark.property.all(kind:in:)">
+    <h3>
+        <code>all(kind:​in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">all</span>(<span class="variable">kind</span>: <span class="type">Kind</span>, <span class="variable">in</span> <span class="variable">locale</span>: <span class="type">Locale</span> = <span class="variable">Locale</span>.<span class="type">current</span>) -&gt; [<span class="keyword">Self</span>]</code></pre></body></html>
+</div>
+<div role="article" class="function" id="placemark.property.feature(_:)">
     <h3>
         <code>feature(_:​)</code>
     </h3>
@@ -169,7 +181,7 @@ It's used by APIs to return localized content.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-02-17T16:34:44+0000">February 17, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-02-17T18:22:14+0000">February 17, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
