@@ -14,7 +14,8 @@ extension Placemark {
 		
 		public let name: String
 		public let latitude, longitude: Double
-		public let type, caption: String
+		public let kind: Kind
+		public let caption: String
 		public let images: [URL]?
 		public let features, goodForTraining, benefits, hazards: [String]?
 		
@@ -22,7 +23,7 @@ extension Placemark {
 			name: String,
 			latitude: Double,
 			longitude: Double,
-			type: String,
+			kind: Kind,
 			caption: String,
 			images: [URL]? = nil,
 			features: [String]? = nil,
@@ -33,7 +34,7 @@ extension Placemark {
 			self.name = name
 			self.latitude = latitude
 			self.longitude = longitude
-			self.type = type
+			self.kind = kind
 			self.caption = caption
 			self.images = images
 			self.features = features
