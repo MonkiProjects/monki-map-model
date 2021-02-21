@@ -18,7 +18,7 @@ public extension Placemark.Details {
 		public let caption: String
 		public let satelliteImage: URL
 		public let images: [URL]
-		public let location: Placemark.Location.Public
+		public let location: Placemark.Location.Public?
 		public let features, goodForTraining, benefits, hazards: Properties
 		
 		public var allImages: [URL] { images + [satelliteImage] }
@@ -27,7 +27,7 @@ public extension Placemark.Details {
 			caption: String,
 			satelliteImage: URL,
 			images: [URL] = [],
-			location: Placemark.Location.Public,
+			location: Placemark.Location.Public? = nil,
 			features: Properties = [],
 			goodForTraining: Properties = [],
 			benefits: Properties = [],
