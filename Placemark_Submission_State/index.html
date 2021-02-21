@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#placemark.submission.state.waitingforchanges">waiting​For​Changes</a></li><li class="case"><a href="#placemark.submission.state.accepted">accepted</a></li><li class="case"><a href="#placemark.submission.state.waitingforreviews">waiting​For​Reviews</a></li><li class="case"><a href="#placemark.submission.state.moderated">moderated</a></li><li class="case"><a href="#placemark.submission.state.needschanges">needs​Changes</a></li><li class="case"><a href="#placemark.submission.state.rejected">rejected</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#placemark.submission.state.moderated">moderated</a></li><li class="case"><a href="#placemark.submission.state.rejected">rejected</a></li><li class="case"><a href="#placemark.submission.state.waitingforchanges">waiting​For​Changes</a></li><li class="case"><a href="#placemark.submission.state.needschanges">needs​Changes</a></li><li class="case"><a href="#placemark.submission.state.accepted">accepted</a></li><li class="case"><a href="#placemark.submission.state.waitingforreviews">waiting​For​Reviews</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -105,11 +105,29 @@
     <section id="enumeration cases">
         <h2>Enumeration Cases</h2>
 
-        <div role="article" class="case" id="placemark.submission.state.waitingforchanges">
+        <div role="article" class="case" id="placemark.submission.state.moderated">
+    <h3>
+        <code>moderated</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">moderated</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="placemark.submission.state.rejected">
+    <h3>
+        <code>rejected</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rejected</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="placemark.submission.state.waitingforchanges">
     <h3>
         <code>waiting​For​Changes</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">waitingForChanges</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="placemark.submission.state.needschanges">
+    <h3>
+        <code>needs​Changes</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">needsChanges</span></code></pre></body></html>
 </div>
 <div role="article" class="case" id="placemark.submission.state.accepted">
     <h3>
@@ -123,24 +141,6 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">waitingForReviews</span></code></pre></body></html>
 </div>
-<div role="article" class="case" id="placemark.submission.state.moderated">
-    <h3>
-        <code>moderated</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">moderated</span></code></pre></body></html>
-</div>
-<div role="article" class="case" id="placemark.submission.state.needschanges">
-    <h3>
-        <code>needs​Changes</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">needsChanges</span></code></pre></body></html>
-</div>
-<div role="article" class="case" id="placemark.submission.state.rejected">
-    <h3>
-        <code>rejected</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rejected</span></code></pre></body></html>
-</div>
     </section>
 
 
@@ -150,7 +150,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-02-20T20:07:12+0000">February 20, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-02-21T19:31:24+0000">February 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
