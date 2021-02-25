@@ -56,7 +56,7 @@ extension Foundation.Bundle {
 			}
 		}
 		
-		fatalError("unable to find bundle")
+		fatalError("unable to find bundle named \(bundleNameIOS) or \(bundleNameMacOs)")
 	}()
 	
 }
