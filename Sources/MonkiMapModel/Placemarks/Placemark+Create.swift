@@ -17,7 +17,7 @@ extension Placemark {
 		public let kind: Kind
 		public let caption: String
 		public let images: [URL]?
-		public let features, goodForTraining, benefits, hazards: [String]?
+		public let properties: [Property.Kind: [String]]?
 		
 		public init(
 			name: String,
@@ -26,10 +26,7 @@ extension Placemark {
 			kind: Kind,
 			caption: String,
 			images: [URL]? = nil,
-			features: [String]? = nil,
-			goodForTraining: [String]? = nil,
-			benefits: [String]? = nil,
-			hazards: [String]? = nil
+			properties: [Property.Kind: [String]]? = nil
 		) {
 			self.name = name
 			self.latitude = latitude
@@ -37,10 +34,7 @@ extension Placemark {
 			self.kind = kind
 			self.caption = caption
 			self.images = images
-			self.features = features
-			self.goodForTraining = goodForTraining
-			self.benefits = benefits
-			self.hazards = hazards
+			self.properties = properties
 		}
 		
 	}
