@@ -41,13 +41,13 @@ enum Strings {
 	static func unknown(in locale: Locale = Locale.current) throws -> String {
 		let fileName = locale.identifier
 		let ext = "lproj"
-		guard let url = Bundle.fixedModule.url(
+		guard let url = Bundle.module.url(
 			forResource: fileName,
 			withExtension: ext,
 			subdirectory: nil,
 			localization: locale.identifier
 		) else {
-			throw NilError(file: fileName, extension: ext, locale: locale.identifier, in: .fixedModule)
+			throw NilError(file: fileName, extension: ext, locale: locale.identifier, in: .module)
 		}
 		guard let localizedBundle = Bundle(url: url) else {
 			throw NilError(type: Bundle.self)
