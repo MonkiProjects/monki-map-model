@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#placemark.create.init(name:latitude:longitude:kind:caption:images:features:goodfortraining:benefits:hazards:)">init(name:​latitude:​longitude:​kind:​caption:​images:​features:​good​For​Training:​benefits:​hazards:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.create.name">name</a></li><li class="variable"><a href="#placemark.create.longitude">longitude</a></li><li class="variable"><a href="#placemark.create.latitude">latitude</a></li><li class="variable"><a href="#placemark.create.kind">kind</a></li><li class="variable"><a href="#placemark.create.caption">caption</a></li><li class="variable"><a href="#placemark.create.images">images</a></li><li class="variable"><a href="#placemark.create.benefits">benefits</a></li><li class="variable"><a href="#placemark.create.goodfortraining">good​For​Training</a></li><li class="variable"><a href="#placemark.create.features">features</a></li><li class="variable"><a href="#placemark.create.hazards">hazards</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#placemark.create.init(name:latitude:longitude:kind:caption:images:properties:)">init(name:​latitude:​longitude:​kind:​caption:​images:​properties:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#placemark.create.name">name</a></li><li class="variable"><a href="#placemark.create.latitude">latitude</a></li><li class="variable"><a href="#placemark.create.longitude">longitude</a></li><li class="variable"><a href="#placemark.create.kind">kind</a></li><li class="variable"><a href="#placemark.create.caption">caption</a></li><li class="variable"><a href="#placemark.create.images">images</a></li><li class="variable"><a href="#placemark.create.properties">properties</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -92,11 +92,11 @@
     <section id="initializers">
         <h2>Initializers</h2>
 
-        <div role="article" class="initializer" id="placemark.create.init(name:latitude:longitude:kind:caption:images:features:goodfortraining:benefits:hazards:)">
+        <div role="article" class="initializer" id="placemark.create.init(name:latitude:longitude:kind:caption:images:properties:)">
     <h3>
-        <code>init(name:​latitude:​longitude:​kind:​caption:​images:​features:​good​For​Training:​benefits:​hazards:​)</code>
+        <code>init(name:​latitude:​longitude:​kind:​caption:​images:​properties:​)</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">name</span>: <span class="type">String</span>, <span class="variable">latitude</span>: <span class="type">Double</span>, <span class="variable">longitude</span>: <span class="type">Double</span>, <span class="variable">kind</span>: <span class="type">Kind</span>, <span class="variable">caption</span>: <span class="type">String</span>, <span class="variable">images</span>: [<span class="type">URL</span>]? = <span class="keyword">nil</span>, <span class="variable">features</span>: [<span class="type">String</span>]? = <span class="keyword">nil</span>, <span class="variable">goodForTraining</span>: [<span class="type">String</span>]? = <span class="keyword">nil</span>, <span class="variable">benefits</span>: [<span class="type">String</span>]? = <span class="keyword">nil</span>, <span class="variable">hazards</span>: [<span class="type">String</span>]? = <span class="keyword">nil</span>)</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">name</span>: <span class="type">String</span>, <span class="variable">latitude</span>: <span class="type">Double</span>, <span class="variable">longitude</span>: <span class="type">Double</span>, <span class="variable">kind</span>: <span class="type">Kind</span>, <span class="variable">caption</span>: <span class="type">String</span>, <span class="variable">images</span>: [<span class="type">URL</span>]? = <span class="keyword">nil</span>, <span class="variable">properties</span>: [<span class="type">Property</span>.<span class="type">Kind</span>: [<span class="type">String</span>]]? = <span class="keyword">nil</span>)</code></pre></body></html>
 </div>
     </section>
     <section id="properties">
@@ -108,17 +108,17 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">name</span>: <span class="type">String</span></code></pre></body></html>
 </div>
-<div role="article" class="variable" id="placemark.create.longitude">
-    <h3>
-        <code>longitude</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">longitude</span>: <span class="type">Double</span></code></pre></body></html>
-</div>
 <div role="article" class="variable" id="placemark.create.latitude">
     <h3>
         <code>latitude</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">latitude</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="placemark.create.longitude">
+    <h3>
+        <code>longitude</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">longitude</span>: <span class="type">Double</span></code></pre></body></html>
 </div>
 <div role="article" class="variable" id="placemark.create.kind">
     <h3>
@@ -138,29 +138,11 @@
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">images</span>: [<span class="type">URL</span>]?</code></pre></body></html>
 </div>
-<div role="article" class="variable" id="placemark.create.benefits">
+<div role="article" class="variable" id="placemark.create.properties">
     <h3>
-        <code>benefits</code>
+        <code>properties</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">benefits</span></code></pre></body></html>
-</div>
-<div role="article" class="variable" id="placemark.create.goodfortraining">
-    <h3>
-        <code>good​For​Training</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">goodForTraining</span></code></pre></body></html>
-</div>
-<div role="article" class="variable" id="placemark.create.features">
-    <h3>
-        <code>features</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">features</span></code></pre></body></html>
-</div>
-<div role="article" class="variable" id="placemark.create.hazards">
-    <h3>
-        <code>hazards</code>
-    </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hazards</span>: [<span class="type">String</span>]?</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">properties</span>: [<span class="type">Property</span>.<span class="type">Kind</span>: [<span class="type">String</span>]]?</code></pre></body></html>
 </div>
     </section>
 
@@ -171,7 +153,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-02-27T20:23:51+0000">February 27, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-02-27T23:24:39+0000">February 27, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
