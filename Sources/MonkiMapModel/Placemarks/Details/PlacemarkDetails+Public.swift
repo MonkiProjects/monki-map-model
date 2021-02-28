@@ -19,7 +19,8 @@ public extension Placemark.Details {
 		public let satelliteImage: URL
 		public let images: [URL]
 		public let location: Placemark.Location.Public?
-		public let properties: [Placemark.Property.Kind: Properties]
+		@RawKeyedCodableDictionary
+		public var properties: [Placemark.Property.Kind: Properties]
 		
 		public var allImages: [URL] { images + [satelliteImage] }
 		

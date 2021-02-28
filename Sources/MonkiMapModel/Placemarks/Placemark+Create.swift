@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MonkiProjectsModel
 
 extension Placemark {
 	
@@ -17,7 +18,8 @@ extension Placemark {
 		public let kind: Kind
 		public let caption: String
 		public let images: [URL]?
-		public let properties: [Property.Kind: [String]]?
+		@RawKeyedCodableDictionary
+		public var properties: [Property.Kind: [String]]
 		
 		public init(
 			name: String,
@@ -26,7 +28,7 @@ extension Placemark {
 			kind: Kind,
 			caption: String,
 			images: [URL]? = nil,
-			properties: [Property.Kind: [String]]? = nil
+			properties: [Property.Kind: [String]] = [:]
 		) {
 			self.name = name
 			self.latitude = latitude
