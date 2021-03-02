@@ -10,7 +10,7 @@ import Foundation
 
 extension Placemark.Submission.Review.Issue {
 	
-	public enum State: String, Codable {
+	public enum State: String, Codable, Hashable {
 		case submitted, addressed, denied
 	}
 	

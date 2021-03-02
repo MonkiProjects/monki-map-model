@@ -11,7 +11,7 @@ import MonkiProjectsModel
 
 public extension Placemark.Details {
 	
-	struct Public: Codable {
+	struct Public: Codable, Hashable {
 		
 		public typealias Properties = [Placemark.Property.Localized]
 		

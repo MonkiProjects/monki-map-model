@@ -10,7 +10,7 @@ import Foundation
 
 extension Placemark.Submission.Review {
 	
-	public enum Opinion: String, Codable {
+	public enum Opinion: String, Codable, Hashable {
 		case positive, needsChanges, negative
 	}
 	

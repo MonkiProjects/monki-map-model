@@ -10,7 +10,7 @@ import Foundation
 
 public extension Placemark.Location {
 	
-	struct Public: Codable, Equatable {
+	struct Public: Codable, Hashable {
 		
 		public let city, country: String
 		

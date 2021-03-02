@@ -20,7 +20,7 @@ public extension Placemark.Kind {
 	///     "title": "Training Spot"
 	/// }
 	/// ```
-	struct Localized: Codable, Equatable, Identifiable {
+	struct Localized: Codable, Hashable, Identifiable {
 		
 		public let id: Placemark.Kind
 		public let title: String

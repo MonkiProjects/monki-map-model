@@ -10,7 +10,7 @@ import Foundation
 
 extension Placemark.Submission.Review.Issue {
 	
-	public struct Create: Codable {
+	public struct Create: Codable, Hashable {
 		
 		public let reason: Reason
 		public let comment: String

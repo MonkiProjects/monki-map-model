@@ -21,7 +21,7 @@ public extension Placemark.Property {
 	///     "kind": "feature"
 	/// }
 	/// ```
-	struct Localized: Codable, Equatable, Identifiable {
+	struct Localized: Codable, Hashable, Identifiable {
 		
 		public let id: String
 		public let title: String

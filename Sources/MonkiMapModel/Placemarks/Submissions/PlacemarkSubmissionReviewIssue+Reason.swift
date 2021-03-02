@@ -10,7 +10,7 @@ import Foundation
 
 extension Placemark.Submission.Review.Issue {
 	
-	public enum Reason: String, Codable {
+	public enum Reason: String, Codable, Hashable {
 		case name, coordinates, type, caption, satelliteImage, images, location, property, other
 	}
 	

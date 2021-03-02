@@ -11,7 +11,7 @@ import Foundation
 public extension Placemark.Property {
 	
 	/// The kind of a placemark property.
-	enum Kind: String, Codable, CaseIterable {
+	enum Kind: String, Codable, Hashable, CaseIterable {
 		
 		/// A feature you might find on a placemark.
 		case feature

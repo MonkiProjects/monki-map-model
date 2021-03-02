@@ -11,7 +11,7 @@ import MonkiProjectsModel
 
 extension Placemark {
 	
-	public struct Create: Codable {
+	public struct Create: Codable, Hashable {
 		
 		public let name: String
 		public let latitude, longitude: Double

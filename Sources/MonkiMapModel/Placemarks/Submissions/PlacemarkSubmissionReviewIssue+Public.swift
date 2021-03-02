@@ -11,7 +11,7 @@ import MonkiProjectsModel
 
 extension Placemark.Submission.Review.Issue {
 	
-	public struct Public: Codable, Identifiable {
+	public struct Public: Codable, Hashable, Identifiable {
 		
 		public let id: UUID
 		public let placemark: Placemark.Public.ID
