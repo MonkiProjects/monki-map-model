@@ -13,20 +13,20 @@ extension Placemark {
 	
 	public struct Create: Codable, Hashable {
 		
-		public let name: String
-		public let latitude, longitude: Double
-		public let kind: Kind
-		public let caption: String
-		public let images: [URL]?
+		public var name: String
+		public var latitude, longitude: Double
+		public var kind: Kind
+		public var caption: String
+		public var images: [URL]?
 		@RawKeyedCodableDictionary
 		public var properties: [Property.Kind: [String]]
 		
 		public init(
-			name: String,
+			name: String = "",
 			latitude: Double,
 			longitude: Double,
 			kind: Kind,
-			caption: String,
+			caption: String = "",
 			images: [URL]? = nil,
 			properties: [Property.Kind: [String]] = [:]
 		) {
