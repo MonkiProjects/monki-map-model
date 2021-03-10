@@ -13,7 +13,7 @@ public extension Placemark {
 	
 	/// The kind of a placemark.
 	/// It impacts its icon on a map marker.
-	enum Kind: String, Codable, Hashable, DefaultCaseDecodable {
+	enum Kind: String, Codable, Hashable, Identifiable, DefaultCaseDecodable {
 		
 		case unknown
 		case trainingSpot = "training_spot"
@@ -32,6 +32,8 @@ public extension Placemark {
 		case bikeRental = "bike_rental"
 		
 		public static var defaultCase: Self = .unknown
+		
+		public var id: RawValue { self.rawValue }
 		
 	}
 	

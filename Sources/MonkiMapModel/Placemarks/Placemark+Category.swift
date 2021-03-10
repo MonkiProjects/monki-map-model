@@ -13,7 +13,7 @@ public extension Placemark {
 	
 	/// The category of a placemark.
 	/// It impacts its color and/or shape on the map.
-	enum Category: String, Codable, Hashable, DefaultCaseDecodable {
+	enum Category: String, Codable, Hashable, Identifiable, DefaultCaseDecodable {
 		
 		case unknown
 		case spot
@@ -21,6 +21,8 @@ public extension Placemark {
 		case miscellaneous = "misc"
 		
 		public static var defaultCase: Self = .unknown
+		
+		public var id: RawValue { self.rawValue }
 		
 		public init(for kind: Placemark.Kind) {
 			do {
