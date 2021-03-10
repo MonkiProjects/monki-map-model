@@ -10,12 +10,14 @@ import Foundation
 
 extension Placemark.Property {
 	
-	public static func all(in locale: Locale = .default) -> [Self] {
+	public static func all(in locale: Locale? = nil) -> [Self] {
+		let locale = locale ?? .default
 		return Internal.all(in: locale)
 			.map { Self.init(id: $0.id, kind: $0.kind) }
 	}
 	
-	public static func all(kind: Kind, in locale: Locale = .default) -> [Self] {
+	public static func all(kind: Kind, in locale: Locale? = nil) -> [Self] {
+		let locale = locale ?? .default
 		return Internal.all(in: locale)
 			.filter { $0.kind == kind }
 			.map { Self.init(id: $0.id, kind: $0.kind) }

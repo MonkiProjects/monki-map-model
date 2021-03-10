@@ -31,7 +31,8 @@ extension Placemark.Category {
 		
 	}
 	
-	func `internal`(in locale: Locale = .default) throws -> Internal {
+	func `internal`(in locale: Locale? = nil) throws -> Internal {
+		let locale = locale ?? .default
 		let values = Internal.all(in: locale)
 		guard let first = values.first(where: { $0.id == self }) else {
 			throw CustomError(
@@ -41,7 +42,8 @@ extension Placemark.Category {
 		return first
 	}
 	
-	func title(in locale: Locale = .default) throws -> String {
+	func title(in locale: Locale? = nil) throws -> String {
+		let locale = locale ?? .default
 		return try self == .unknown
 			? Strings.unknown(in: locale)
 			: self.internal(in: locale).title

@@ -16,7 +16,8 @@ protocol PlistDecodable: Decodable {
 
 extension PlistDecodable {
 	
-	static func all(in locale: Locale = .default) -> [Self] {
+	static func all(in locale: Locale? = nil) -> [Self] {
+		let locale = locale ?? .default
 		do {
 			return try PropertyListDecoder().decode(
 				[Self].self,

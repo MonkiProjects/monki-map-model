@@ -36,19 +36,22 @@ public extension Placemark.Property {
 		
 	}
 	
-	internal func `internal`(in locale: Locale = .default) throws -> Internal {
+	internal func `internal`(in locale: Locale? = nil) throws -> Internal {
+		let locale = locale ?? .default
 		return try Internal.all(in: locale)
 			.first(where: { $0.id == self.id && $0.kind == self.kind })
 			.require()
 	}
 	
-	func title(in locale: Locale = .default) throws -> String {
+	func title(in locale: Locale? = nil) throws -> String {
+		let locale = locale ?? .default
 		return try self.id == "unknown" // Unsafe but we cannot use .unknown here
 			? Strings.unknown(in: locale)
 			: self.internal(in: locale).title
 	}
 	
-	func localized(in locale: Locale = .default) throws -> Localized {
+	func localized(in locale: Locale? = nil) throws -> Localized {
+		let locale = locale ?? .default
 		return Localized(id: self.id, title: try self.title(in: locale), kind: self.kind)
 	}
 	

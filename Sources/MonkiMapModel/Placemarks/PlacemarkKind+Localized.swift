@@ -32,7 +32,8 @@ public extension Placemark.Kind {
 		
 	}
 	
-	func localized(in locale: Locale = .default) throws -> Localized {
+	func localized(in locale: Locale? = nil) throws -> Localized {
+		let locale = locale ?? .default
 		return Localized(id: self, title: try self.title(in: locale))
 	}
 	
