@@ -73,7 +73,7 @@ extension Placemark.Kind {
 		
 	}
 	
-	func `internal`(in locale: Locale = Locale.current) throws -> Internal {
+	func `internal`(in locale: Locale = .default) throws -> Internal {
 		let values = Internal.all(in: locale)
 		guard let first = values.first(where: { $0.id == self }) else {
 			throw CustomError(
@@ -83,7 +83,7 @@ extension Placemark.Kind {
 		return first
 	}
 	
-	func title(in locale: Locale = Locale.current) throws -> String {
+	func title(in locale: Locale = .default) throws -> String {
 		return try self == .unknown
 			? Strings.unknown(in: locale)
 			: self.internal(in: locale).title

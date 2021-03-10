@@ -13,6 +13,7 @@ extension Locale {
 	static var en: Locale { .init(identifier: "en") }
 	static var fr: Locale { .init(identifier: "fr") }
 	
+	static var `default`: Locale { .en }
 	static var supported: [Locale] { [.en, .fr] }
 	
 }

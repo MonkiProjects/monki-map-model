@@ -38,7 +38,7 @@ enum Strings {
 	///   let french = Strings.unknown(in: Locale(identifier: "fr"))
 	///   // Returns "Inconnu"
 	///   ```
-	static func unknown(in locale: Locale = Locale.current) throws -> String {
+	static func unknown(in locale: Locale = .default) throws -> String {
 		let fileName = locale.identifier
 		let ext = "lproj"
 		guard let url = Bundle.module.url(
